@@ -2,15 +2,15 @@
 
 :root {
   --font-size: 16px;
-  --background: #F8FAFC;
+  --background: #f8fafc;
   --foreground: #1e293b;
   --card: #ffffff;
   --card-foreground: #1e293b;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #2D6A4F;
+  --primary: #2d6a4f;
   --primary-foreground: #ffffff;
-  --secondary: #1A759F;
+  --secondary: #1a759f;
   --secondary-foreground: #ffffff;
   --muted: #ececf0;
   --muted-foreground: #64748b;
@@ -39,11 +39,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
+
   /* Croak Custom Colors */
-  --croak-green: #2D6A4F;
-  --croak-blue: #1A759F;
-  --croak-mist: #F8FAFC;
+  --croak-green: #2d6a4f;
+  --croak-blue: #1a759f;
+  --croak-mist: #f8fafc;
 }
 
 .dark {
@@ -140,11 +140,26 @@
 
   html {
     font-size: var(--font-size);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family:
+      "Plus Jakarta Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
   }
 
   h1 {
