@@ -46,8 +46,8 @@ export function AppPreview() {
                       <div className="text-lg font-bold text-[#2D6A4F]" style={{ fontFamily: 'Plus Jakarta Sans' }}>7.2</div>
                     </div>
                     <div className="bg-white rounded-[20px] p-4 shadow-sm border border-gray-100">
-                      <div className="text-xs text-gray-500 mb-1">TDS</div>
-                      <div className="text-lg font-bold text-[#2D6A4F]" style={{ fontFamily: 'Plus Jakarta Sans' }}>45</div>
+                      <div className="text-xs text-gray-500 mb-1">NTU</div>
+                      <div className="text-lg font-bold text-[#2D6A4F]" style={{ fontFamily: 'Plus Jakarta Sans' }}>0.4</div>
                     </div>
                     <div className="bg-white rounded-[20px] p-4 shadow-sm border border-gray-100">
                       <div className="text-xs text-gray-500 mb-1">Temp</div>

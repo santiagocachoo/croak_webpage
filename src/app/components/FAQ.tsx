@@ -4,7 +4,7 @@ import { useState } from "react";
 const faqs = [
   {
     question: "How does Croak monitor water quality?",
-    answer: "Croak uses built-in sensors to continuously track key water quality indicators including pH levels, temperature, and total dissolved solids (TDS). The device monitors your water 24/7 and sends real-time updates to the mobile app."
+    answer: "Croak uses built-in sensors to continuously track key water quality indicators including pH levels, temperature, and turbidity (NTU). The device monitors your water 24/7 and sends real-time updates to the mobile app."
   },
   {
     question: "How do I install Croak?",
