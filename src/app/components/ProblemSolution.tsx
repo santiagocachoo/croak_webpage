@@ -3,20 +3,20 @@ import { Eye, Activity, Bell } from "lucide-react";
 const features = [
   {
     icon: Eye,
-    title: "Changes You Can't See",
-    description: "Water may appear normal even when important quality indicators begin to shift.",
+    title: "Cambios que no ves",
+    description: "El agua puede verse normal incluso cuando indicadores importantes de calidad empiezan a cambiar.",
     color: "#2D6A4F",
   },
   {
     icon: Activity,
-    title: "Live Monitoring",
-    description: "Track water conditions continuously through the device and view updates in the app.",
+    title: "Monitoreo en vivo",
+    description: "Sigue las condiciones del agua de forma continua desde el dispositivo y revisa las actualizaciones en la app.",
     color: "#1A759F",
   },
   {
     icon: Bell,
-    title: "Instant Alerts",
-    description: "Receive notifications when readings move outside expected ranges so you can respond quickly.",
+    title: "Alertas al instante",
+    description: "Recibe notificaciones cuando las lecturas salgan de los rangos esperados para que puedas actuar a tiempo.",
     color: "#2D6A4F",
   },
 ];
@@ -27,13 +27,13 @@ export function ProblemSolution() {
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <div className="inline-block px-4 py-2 bg-[#1A759F]/10 rounded-[24px] text-[#1A759F] text-sm font-medium mb-6">
-          Why Monitor Water
+          Por qué monitorear tu agua
         </div>
         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
-          Why Water Monitoring Matters
+          Por qué importa monitorear el agua
         </h2>
         <p className="text-lg text-gray-600">
-          Water can look clean and still change in ways you cannot detect on your own. Croak helps you monitor key indicators and know when something needs your attention.
+          El agua puede verse limpia y aun así cambiar de formas que no puedes detectar por tu cuenta. Croak te ayuda a monitorear indicadores clave y saber cuándo algo necesita tu atención.
         </p>
       </div>
 

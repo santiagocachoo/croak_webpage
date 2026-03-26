@@ -3,28 +3,28 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "How does Croak monitor water quality?",
-    answer: "Croak uses built-in sensors to continuously track key water quality indicators including pH levels, temperature, and turbidity (NTU). The device monitors your water 24/7 and sends real-time updates to the mobile app."
+    question: "¿Cómo monitorea Croak la calidad del agua?",
+    answer: "Croak usa sensores integrados para seguir de forma continua indicadores clave de la calidad del agua, incluyendo nivel de pH, temperatura y turbidez. El dispositivo monitorea tu agua 24/7 y envía actualizaciones en tiempo real a la app móvil."
   },
   {
-    question: "How do I install Croak?",
-    answer: "Croak is designed for easy installation. Simply attach it to your water line following the included instructions. The device connects to your home WiFi network and pairs with the mobile app in minutes. No professional installation required."
+    question: "¿Cómo instalo Croak?",
+    answer: "Croak está diseñado para una instalación sencilla. Solo conéctalo a tu línea de agua siguiendo las instrucciones incluidas. El dispositivo se conecta a tu red WiFi y se vincula con la app móvil en minutos. No se requiere instalación profesional."
   },
   {
-    question: "Will I receive alerts if something changes?",
-    answer: "Yes. When water quality readings move outside expected ranges, Croak sends instant notifications to your phone so you can respond quickly. You can customize alert thresholds in the app."
+    question: "¿Recibiré alertas si algo cambia?",
+    answer: "Sí. Cuando las lecturas de calidad del agua salen de los rangos esperados, Croak envía notificaciones al instante a tu celular para que puedas responder rápido. Puedes personalizar los umbrales de alerta desde la app."
   },
   {
-    question: "What do I need to use Croak?",
-    answer: "You need a WiFi connection and a smartphone (iOS or Android) to use the Croak app. The device itself requires a standard power outlet and access to your home's water line."
+    question: "¿Qué necesito para usar Croak?",
+    answer: "Necesitas una conexión WiFi y un smartphone con iOS o Android para usar la app de Croak. El dispositivo requiere una toma de corriente estándar y acceso a la línea de agua de tu hogar."
   },
   {
-    question: "How accurate is the monitoring?",
-    answer: "Croak uses calibrated sensors designed for continuous residential water monitoring. While not a replacement for professional lab testing, it provides reliable tracking of daily water quality changes in your home."
+    question: "¿Qué tan preciso es el monitoreo?",
+    answer: "Croak utiliza sensores calibrados para el monitoreo continuo del agua en el hogar. Aunque no reemplaza un análisis profesional de laboratorio, ofrece un seguimiento confiable de los cambios diarios en la calidad del agua."
   },
   {
-    question: "What's included with purchase?",
-    answer: "Your Croak purchase includes the monitoring device, power adapter, installation hardware, quick start guide, and free access to the mobile app. A one-year warranty is included."
+    question: "¿Qué incluye la compra?",
+    answer: "Tu compra de Croak incluye el dispositivo de monitoreo, adaptador de corriente, accesorios de instalación, guía de inicio rápido y acceso sin costo a la app móvil. También incluye un año de garantía."
   }
 ];
 
@@ -36,13 +36,13 @@ export function FAQ() {
       {/* Section Header */}
       <div className="text-center mb-16">
         <div className="inline-block px-4 py-2 bg-[#2D6A4F]/10 rounded-[24px] text-[#2D6A4F] text-sm font-medium mb-6">
-          FAQ
+          Preguntas frecuentes
         </div>
         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
-          Frequently Asked Questions
+          Preguntas frecuentes
         </h2>
         <p className="text-lg text-gray-600">
-          Everything you need to know about Croak water monitoring.
+          Todo lo que necesitas saber sobre el monitoreo de agua con Croak.
         </p>
       </div>
 
@@ -79,9 +79,9 @@ export function FAQ() {
 
       {/* Contact CTA */}
       <div className="mt-12 text-center">
-        <p className="text-gray-600 mb-4">Still have questions?</p>
+        <p className="text-gray-600 mb-4">¿Todavía tienes dudas?</p>
         <a href="#" className="text-[#2D6A4F] font-semibold hover:text-[#245a41] transition-colors">
-          Contact Support →
+          Contactar soporte →
         </a>
       </div>
     </section>

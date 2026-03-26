@@ -17,7 +17,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-gray-400 mb-6 max-w-sm">
-              Smart water quality monitoring for homes. Track changes, view status updates, and stay informed from your phone.
+              Monitoreo inteligente de la calidad del agua para el hogar. Sigue los cambios, revisa el estado y mantente informado desde tu celular.
             </p>
             <div className="flex items-center gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#2D6A4F] flex items-center justify-center transition-colors">
@@ -34,23 +34,23 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Product</h4>
+            <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Producto</h4>
             <ul className="space-y-3">
-              <li><a href="#product" className="hover:text-[#2D6A4F] transition-colors">Product</a></li>
-              <li><a href="#features" className="hover:text-[#2D6A4F] transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="hover:text-[#2D6A4F] transition-colors">How It Works</a></li>
-              <li><a href="#faq" className="hover:text-[#2D6A4F] transition-colors">FAQ</a></li>
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Buy Now</a></li>
+              <li><a href="#product" className="hover:text-[#2D6A4F] transition-colors">Producto</a></li>
+              <li><a href="#features" className="hover:text-[#2D6A4F] transition-colors">Características</a></li>
+              <li><a href="#how-it-works" className="hover:text-[#2D6A4F] transition-colors">Cómo funciona</a></li>
+              <li><a href="#faq" className="hover:text-[#2D6A4F] transition-colors">Preguntas frecuentes</a></li>
+              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Comprar ahora</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Company</h4>
+            <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Empresa</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Support</a></li>
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Nosotros</a></li>
+              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Contacto</a></li>
+              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Soporte</a></li>
+              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Política de privacidad</a></li>
             </ul>
           </div>
         </div>
@@ -58,12 +58,12 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            © 2026 Croak Technologies, Inc. All rights reserved.
+            © 2026 Croak Technologies, Inc. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Cookie Policy</a>
+            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Política de privacidad</a>
+            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Términos del servicio</a>
+            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Política de cookies</a>
           </div>
         </div>
       </div>

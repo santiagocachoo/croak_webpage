@@ -13,15 +13,15 @@ export function FinalCTA() {
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <div className="text-6xl mb-6">🐸</div>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
-            Start Monitoring Your Water Today
+            Empieza a monitorear tu agua hoy
           </h2>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Order Croak today and start monitoring your water from your phone.
+            Pide Croak hoy y empieza a monitorear tu agua desde tu celular.
           </p>
 
           {/* CTA Button */}
           <button className="px-10 py-5 bg-white text-[#2D6A4F] rounded-[28px] hover:bg-gray-50 transition-all hover:shadow-xl flex items-center justify-center gap-2 group font-semibold text-lg mx-auto">
-            Buy Now
+            Comprar ahora
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

@@ -18,19 +18,19 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a href="#product" className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
-              Product
+              Producto
             </a>
             <a href="#features" className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
-              Features
+              Características
             </a>
             <a href="#how-it-works" className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
-              How It Works
+              Cómo funciona
             </a>
             <a href="#faq" className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
-              FAQ
+              Preguntas
             </a>
             <button className="px-6 py-3 bg-[#2D6A4F] text-white rounded-[24px] hover:bg-[#245a41] transition-all hover:shadow-lg">
-              Buy Now
+              Comprar ahora
             </button>
           </div>
 

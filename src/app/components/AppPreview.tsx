@@ -17,8 +17,8 @@ export function AppPreview() {
                 <div className="bg-gradient-to-b from-[#F8FAFC] to-white px-6 pb-8 pt-4">
                   {/* Header */}
                   <div className="text-center mb-8">
-                    <p className="text-sm text-gray-500 mb-2">Your Water Status</p>
-                    <h3 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Plus Jakarta Sans' }}>All Clear</h3>
+                    <p className="text-sm text-gray-500 mb-2">Estado de tu agua</p>
+                    <h3 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Plus Jakarta Sans' }}>Todo bien</h3>
                   </div>
 
                   {/* Frog State Visualization */}
@@ -42,15 +42,15 @@ export function AppPreview() {
                   {/* Metrics */}
                   <div className="grid grid-cols-3 gap-3">
                     <div className="bg-white rounded-[20px] p-4 shadow-sm border border-gray-100">
-                      <div className="text-xs text-gray-500 mb-1">pH Level</div>
+                      <div className="text-xs text-gray-500 mb-1">Nivel de pH</div>
                       <div className="text-lg font-bold text-[#2D6A4F]" style={{ fontFamily: 'Plus Jakarta Sans' }}>7.2</div>
                     </div>
                     <div className="bg-white rounded-[20px] p-4 shadow-sm border border-gray-100">
-                      <div className="text-xs text-gray-500 mb-1">NTU</div>
+                      <div className="text-xs text-gray-500 mb-1">Turbidez</div>
                       <div className="text-lg font-bold text-[#2D6A4F]" style={{ fontFamily: 'Plus Jakarta Sans' }}>0.4</div>
                     </div>
                     <div className="bg-white rounded-[20px] p-4 shadow-sm border border-gray-100">
-                      <div className="text-xs text-gray-500 mb-1">Temp</div>
+                      <div className="text-xs text-gray-500 mb-1">Temp.</div>
                       <div className="text-lg font-bold text-[#2D6A4F]" style={{ fontFamily: 'Plus Jakarta Sans' }}>68°F</div>
                     </div>
                   </div>
@@ -65,8 +65,8 @@ export function AppPreview() {
                   <span className="text-lg">💧</span>
                 </div>
                 <div className="text-left">
-                  <div className="text-xs text-gray-500">Just now</div>
-                  <div className="text-sm font-semibold text-gray-900">Water status updated</div>
+                  <div className="text-xs text-gray-500">Ahora mismo</div>
+                  <div className="text-sm font-semibold text-gray-900">Estado del agua actualizado</div>
                 </div>
               </div>
             </div>
@@ -76,23 +76,23 @@ export function AppPreview() {
         {/* Right: Content */}
         <div className="space-y-6 order-1 lg:order-2">
           <div className="inline-block px-4 py-2 bg-[#1A759F]/10 rounded-[24px] text-[#1A759F] text-sm font-medium">
-            Monitor from Your Phone
+            Monitorea desde tu celular
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
-            See Your Water Status at a Glance
+            Ve el estado de tu agua de un vistazo
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed">
-            The Croak app turns sensor readings into a clear, simple water status so you can check your water anytime without needing technical knowledge.
+            La app de Croak convierte las lecturas de los sensores en un estado del agua claro y fácil de entender para que puedas revisarla en cualquier momento sin conocimientos técnicos.
           </p>
 
           <ul className="space-y-4">
             {[
-              "Clear water status from your phone",
-              "Alerts when readings change",
-              "Simple trend tracking over time",
-              "Designed for everyday home use"
+              "Estado del agua claro desde tu celular",
+              "Alertas cuando cambien las lecturas",
+              "Seguimiento simple de tendencias con el tiempo",
+              "Diseñada para el uso diario en casa"
             ].map((item, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-[#2D6A4F] flex items-center justify-center flex-shrink-0 mt-0.5">
