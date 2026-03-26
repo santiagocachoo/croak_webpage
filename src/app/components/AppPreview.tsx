@@ -32,7 +32,7 @@ export function AppPreview() {
                     </div>
 
                     {/* Status Indicator */}
-                    <div className="absolute -top-4 -right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                    <div className="absolute -top-7 -right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -59,14 +59,14 @@ export function AppPreview() {
             </div>
 
             {/* Floating Notification */}
-            <div className="absolute -right-8 top-1/3 bg-white rounded-[24px] shadow-xl p-4 border border-gray-100 hidden lg:block">
+            <div className="absolute right-0 top-[29%] bg-white rounded-[24px] shadow-xl p-4 border border-gray-100 hidden lg:block">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                   <span className="text-lg">💧</span>
                 </div>
                 <div className="text-left">
-                  <div className="text-xs text-gray-500">Ahora mismo</div>
-                  <div className="text-sm font-semibold text-gray-900">Estado del agua actualizado</div>
+                  <div className="text-xs text-gray-500">Ahora</div>
+                  <div className="text-sm font-semibold text-gray-900">Estado actualizado</div>
                 </div>
               </div>
             </div>
