@@ -1,4 +1,5 @@
 import { Menu } from "lucide-react";
+import croakLogo from "../../assets/croak_logo.png"
 
 export function Navbar() {
   return (
@@ -7,9 +8,11 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-[20px] bg-[#2D6A4F] flex items-center justify-center">
-              <span className="text-2xl">🐸</span>
-            </div>
+            <img
+              src={croakLogo}
+              alt="Logo de Croak"
+              className="w-10 h-10 object-contain"
+            ></img>
             <span className="text-2xl font-bold text-[#2D6A4F] tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
               Croak
             </span>
