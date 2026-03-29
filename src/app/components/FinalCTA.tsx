@@ -25,7 +25,7 @@ export function FinalCTA() {
           </p>
 
           {/* CTA Button */}
-          <button className="px-10 py-5 bg-white text-[#2D6A4F] rounded-[28px] hover:bg-gray-50 transition-all hover:shadow-xl flex items-center justify-center gap-2 group font-semibold text-lg mx-auto">
+          <button type="button" className="px-10 py-5 bg-white text-[#2D6A4F] rounded-[28px] hover:bg-gray-50 transition-all hover:shadow-xl flex items-center justify-center gap-2 group font-semibold text-lg mx-auto">
             Comprar ahora
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </button>

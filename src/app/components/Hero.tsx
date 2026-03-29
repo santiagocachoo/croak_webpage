@@ -2,7 +2,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="pt-32 pb-20 px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="product" className="pt-32 pb-20 px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Content */}
         <div className="space-y-8">
@@ -20,7 +20,7 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 bg-[#2D6A4F] text-white rounded-[28px] hover:bg-[#245a41] transition-all hover:shadow-xl flex items-center justify-center gap-2 group">
+            <button type="button" className="px-8 py-4 bg-[#2D6A4F] text-white rounded-[28px] hover:bg-[#245a41] transition-all hover:shadow-xl flex items-center justify-center gap-2 group">
               Comprar ahora
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

@@ -32,7 +32,7 @@ export function Navbar() {
             <a href="#faq" className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
               Preguntas
             </a>
-            <button className="px-6 py-3 bg-[#2D6A4F] text-white rounded-[24px] hover:bg-[#245a41] transition-all hover:shadow-lg">
+            <button type="button" className="px-6 py-3 bg-[#2D6A4F] text-white rounded-[24px] hover:bg-[#245a41] transition-all hover:shadow-lg">
               Comprar ahora
             </button>
           </div>
