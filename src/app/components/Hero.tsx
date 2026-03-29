@@ -54,7 +54,7 @@ export function Hero() {
         <div className="relative">
           <div className="relative rounded-[32px] overflow-hidden shadow-2xl bg-gradient-to-br from-[#2D6A4F]/10 to-[#1A759F]/10 p-12">
             <img
-              src="https://blocks.astratic.com/img/general-img-landscape.png"
+              src="src/assets/croak_hero.png"
               alt="Dispositivo Croak para monitorear la calidad del agua"
               className="w-full h-auto"
             />
