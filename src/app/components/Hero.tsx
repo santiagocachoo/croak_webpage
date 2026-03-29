@@ -25,10 +25,10 @@ export function Hero() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button className="px-8 py-4 border-2 border-[#1A759F] text-[#1A759F] rounded-[28px] hover:bg-[#1A759F]/5 transition-all flex items-center justify-center gap-2">
+            <a href="https://www.youtube.com/watch?v=FUGFZccrcwI" target="_blank" rel="noopener noreferrer" className="px-8 py-4 border-2 border-[#1A759F] text-[#1A759F] rounded-[28px] hover:bg-[#1A759F]/5 transition-all flex items-center justify-center gap-2">
               <Play className="w-5 h-5" />
               Ver cómo funciona
-            </button>
+            </a>
           </div>
 
           {/* Trust Indicators */}
