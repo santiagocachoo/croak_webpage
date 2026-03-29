@@ -43,10 +43,10 @@ export function Footer({ isLanding = false }: FooterProps) {
           <div>
             <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Producto</h4>
             <ul className="space-y-3">
-              <li><a href={isLanding ? "#product" : "/#/"} className="hover:text-[#2D6A4F] transition-colors">Producto</a></li>
-              <li><a href={isLanding ? "#features" : "/#/"} className="hover:text-[#2D6A4F] transition-colors">Características</a></li>
-              <li><a href={isLanding ? "#how-it-works" : "/#/"} className="hover:text-[#2D6A4F] transition-colors">Cómo funciona</a></li>
-              <li><a href={isLanding ? "#faq" : "/#/"} className="hover:text-[#2D6A4F] transition-colors">Preguntas frecuentes</a></li>
+              <li><a href={isLanding ? "#product" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Producto</a></li>
+              <li><a href={isLanding ? "#features" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Características</a></li>
+              <li><a href={isLanding ? "#how-it-works" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Cómo funciona</a></li>
+              <li><a href={isLanding ? "#faq" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Preguntas frecuentes</a></li>
               <li><span className="hover:text-[#2D6A4F] transition-colors">Comprar ahora</span></li>
             </ul>
           </div>

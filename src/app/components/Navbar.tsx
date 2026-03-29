@@ -25,22 +25,22 @@ export function Navbar({ isLanding = false}: NavbarProps) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a
-              href={isLanding ? "#product" : "/#/"}
+              href={isLanding ? "#product" : "#/"}
               className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
               Producto
             </a>
             <a
-              href={isLanding ? "#features" : "/#/"}
+              href={isLanding ? "#features" : "#/"}
               className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
               Características
             </a>
             <a
-              href={isLanding ? "#how-it-works" : "/#/"}
+              href={isLanding ? "#how-it-works" : "#/"}
               className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
               Cómo funciona
             </a>
             <a
-              href={isLanding ? "#faq" : "/#/"}
+              href={isLanding ? "#faq" : "#/"}
               className="text-gray-700 hover:text-[#2D6A4F] transition-colors">
               Preguntas
             </a>

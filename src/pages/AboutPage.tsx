@@ -70,7 +70,7 @@ export function AboutPage() {
 
         <section>
           <a
-            href="/#/"
+            href="#/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#2D6A4F] text-white rounded-[28px] hover:bg-[#245a41] transition-all hover:shadow-xl"
           >
             Volver al inicio
