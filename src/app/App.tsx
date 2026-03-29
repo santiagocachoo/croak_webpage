@@ -1,21 +1,15 @@
-import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { ProblemSolution } from "./components/ProblemSolution";
-import { AppPreview } from "./components/AppPreview";
-import { FAQ } from "./components/FAQ";
-import { FinalCTA } from "./components/FinalCTA";
-import { Footer } from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "../pages/HomePage";
+import { AboutPage } from "../pages/AboutPage";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <Navbar />
-      <Hero />
-      <ProblemSolution />
-      <AppPreview />
-      <FAQ />
-      <FinalCTA />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/nosotros" element={<AboutPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
     </div>
   );
 }

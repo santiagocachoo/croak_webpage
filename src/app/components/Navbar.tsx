@@ -1,7 +1,11 @@
 import { Menu } from "lucide-react";
 import croakLogo from "../../assets/croak_logo.png"
 
-export function Navbar() {
+type NavbarProps = {
+  isLanding?: boolean;
+};
+
+export function Navbar({ isLanding = false}: NavbarProps) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
       <div className="w-full px-8 lg:px-12 xl:px-16">

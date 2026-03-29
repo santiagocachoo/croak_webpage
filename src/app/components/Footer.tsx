@@ -1,7 +1,11 @@
 import { Twitter, Linkedin, Instagram } from "lucide-react";
 import croakLogo from "../../assets/croak_logo.png";
 
-export function Footer() {
+type FooterProps = {
+  isLanding?: boolean;
+};
+
+export function Footer({ isLanding = false }: FooterProps) {
   return (
     <footer className="bg-gray-900 text-gray-300 py-16 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -50,7 +54,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Empresa</h4>
             <ul className="space-y-3">
-              <li><a href="/nosotros" className="hover:text-[#2D6A4F] transition-colors">Nosotros</a></li>
+              <li><a href="/#/nosotros" className="hover:text-[#2D6A4F] transition-colors">Nosotros</a></li>
               <li><a href="mailto:croakfernando@gmail.com" className="hover:text-[#2D6A4F] transition-colors">Contacto</a></li>
               <li><a href="mailto:croakfernando@gmail.com" className="hover:text-[#2D6A4F] transition-colors">Soporte</a></li>
             </ul>
