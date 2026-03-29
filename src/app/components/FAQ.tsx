@@ -80,7 +80,7 @@ export function FAQ() {
       {/* Contact CTA */}
       <div className="mt-12 text-center">
         <p className="text-gray-600 mb-4">¿Todavía tienes dudas?</p>
-        <a href="#" className="text-[#2D6A4F] font-semibold hover:text-[#245a41] transition-colors">
+        <a href="mailto:croakfernando@gmail.com" className="text-[#2D6A4F] font-semibold hover:text-[#245a41] transition-colors">
           Contactar soporte →
         </a>
       </div>

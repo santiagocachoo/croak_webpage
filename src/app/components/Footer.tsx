@@ -51,9 +51,8 @@ export function Footer() {
             <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Empresa</h4>
             <ul className="space-y-3">
               <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Nosotros</a></li>
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Contacto</a></li>
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Soporte</a></li>
-              <li><a href="#" className="hover:text-[#2D6A4F] transition-colors">Política de privacidad</a></li>
+              <li><a href="mailto:croakfernando@gmail.com" className="hover:text-[#2D6A4F] transition-colors">Contacto</a></li>
+              <li><a href="mailto:croakfernando@gmail.com" className="hover:text-[#2D6A4F] transition-colors">Soporte</a></li>
             </ul>
           </div>
         </div>
@@ -63,11 +62,6 @@ export function Footer() {
           <p className="text-sm text-gray-500">
             © 2026 Croak Technologies, Inc. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Política de privacidad</a>
-            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Términos del servicio</a>
-            <a href="#" className="hover:text-[#2D6A4F] transition-colors">Política de cookies</a>
-          </div>
         </div>
       </div>
     </footer>
