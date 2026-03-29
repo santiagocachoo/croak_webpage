@@ -33,7 +33,7 @@ export function Footer({ isLanding = false }: FooterProps) {
               <a href="https://github.com/santiagocachoo/croak_webpage" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#2D6A4F] flex items-center justify-center transition-colors">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/croaksafe?igsh=YXN3cGFyMWx0bnpm&utm_source=qr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#2D6A4F] flex items-center justify-center transition-colors">
+              <a href="https://www.instagram.com/croaksafe" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#2D6A4F] flex items-center justify-center transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
