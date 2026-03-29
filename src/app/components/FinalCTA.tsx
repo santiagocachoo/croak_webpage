@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import croakLogo from "../../assets/croak_logo.png";
 
 export function FinalCTA() {
   return (
@@ -11,7 +12,11 @@ export function FinalCTA() {
         </div>
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <div className="text-6xl mb-6">🐸</div>
+          <img
+            src={croakLogo}
+            alt="Logo de Croak"
+            className="w-16 h-16 object-contain mx-auto mb-6"
+          />
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
             Empieza a monitorear tu agua hoy
           </h2>
