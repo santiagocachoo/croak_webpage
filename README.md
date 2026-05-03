@@ -1,13 +1,8 @@
 # Croak Webpage
 
-Landing page for Croak, a smart water quality monitoring product.
+Sitio web de Croak, un producto de monitoreo inteligente de calidad del agua para el hogar.
 
-This repository contains the current frontend for the Croak website, including:
-
-- the main landing page
-- the `/nosotros` page
-- GitHub Pages deployment setup
-- real product branding and prototype preview assets
+El proyecto contiene la landing principal, la página de `Nosotros`, assets reales del prototipo y la configuración necesaria para publicar en GitHub Pages.
 
 ## Stack
 
@@ -16,62 +11,81 @@ This repository contains the current frontend for the Croak website, including:
 - Vite
 - Tailwind CSS
 - React Router DOM
+- Lucide React
 - GitHub Pages
 
-## Requirements
+## Requisitos
+
+Necesitas tener instalado:
 
 - Node.js
 - npm
 
-Check your versions with:
+Puedes revisar tus versiones con:
 
-`node -v`
-`npm -v`
+```bash
+node -v
+npm -v
+```
 
-## Run Locally
+## Instalación
 
-Install dependencies:
+Instala dependencias:
 
-`npm install`
+```bash
+npm install
+```
 
-Start the development server:
+## Desarrollo local
 
-`npm run dev`
+Levanta el servidor de desarrollo:
 
-Then open the local URL shown in the terminal, usually:
+```bash
+npm run dev
+```
 
-`http://localhost:5173`
+Vite mostrará una URL local en la terminal. Normalmente será:
 
-## Build
+```text
+http://localhost:5173/croak_webpage/
+```
 
-Create a production build:
+## Build de producción
 
-`npm run build`
+Genera una versión optimizada en `dist/`:
 
-## Deploy
+```bash
+npm run build
+```
 
-This project is configured for GitHub Pages.
+## Despliegue
 
-Publish the current `dist/` build with:
+El proyecto está configurado para publicarse en GitHub Pages.
 
-`npm run deploy`
+Para publicar la versión actual:
 
-Production URL:
+```bash
+npm run deploy
+```
+
+Ese comando ejecuta el build y sube `dist/` al branch `gh-pages`.
+
+URL de producción:
 
 [https://santiagocachoo.github.io/croak_webpage/](https://santiagocachoo.github.io/croak_webpage/)
 
-About page URL:
+Página de Nosotros:
 
 [https://santiagocachoo.github.io/croak_webpage/#/nosotros](https://santiagocachoo.github.io/croak_webpage/#/nosotros)
 
 ## Scripts
 
-- `npm run dev` — start local dev server
-- `npm run build` — generate production build into `dist/`
-- `npm run predeploy` — build before deploy
-- `npm run deploy` — publish `dist/` to GitHub Pages
+- `npm run dev`: levanta el servidor local de Vite.
+- `npm run build`: genera el build de producción en `dist/`.
+- `npm run predeploy`: ejecuta el build antes de publicar.
+- `npm run deploy`: publica `dist/` en GitHub Pages.
 
-## Project Structure
+## Estructura del proyecto
 
 ```text
 croak_webpage/
@@ -79,20 +93,21 @@ croak_webpage/
 │   ├── app/
 │   │   ├── App.tsx
 │   │   └── components/
-│   │       ├── Navbar.tsx
-│   │       ├── Hero.tsx
-│   │       ├── ProblemSolution.tsx
 │   │       ├── AppPreview.tsx
+│   │       ├── ExperienceFlow.tsx
 │   │       ├── FAQ.tsx
 │   │       ├── FinalCTA.tsx
-│   │       └── Footer.tsx
+│   │       ├── Footer.tsx
+│   │       ├── Hero.tsx
+│   │       ├── Navbar.tsx
+│   │       └── ProblemSolution.tsx
 │   ├── assets/
 │   │   ├── croak_hero.png
 │   │   ├── croak_logo.png
 │   │   └── preview_app.png
 │   ├── pages/
-│   │   ├── HomePage.tsx
-│   │   └── AboutPage.tsx
+│   │   ├── AboutPage.tsx
+│   │   └── HomePage.tsx
 │   ├── styles/
 │   │   ├── index.css
 │   │   └── theme.css
@@ -101,132 +116,178 @@ croak_webpage/
 ├── index.html
 ├── package.json
 ├── package-lock.json
+├── postcss.config.mjs
 ├── tsconfig.json
 ├── vite.config.ts
-├── postcss.config.mjs
-├── .gitignore
 └── README.md
 ```
 
-## How the App Works
+## Cómo funciona la app
 
-- `index.html` provides the root HTML container
-- `src/main.tsx` mounts the React app and wraps it with `HashRouter`
-- `src/app/App.tsx` defines the main routes
-- `src/pages/HomePage.tsx` renders the landing page
-- `src/pages/AboutPage.tsx` renders the `/nosotros` page
-- `src/app/components/` contains the reusable sections used across pages
-- `src/assets/` contains local image assets used by the UI
-- `src/styles/` contains the global styling entry and theme files
+- `index.html` define el contenedor raíz.
+- `src/main.tsx` monta React y envuelve la app con `HashRouter`.
+- `src/app/App.tsx` define las rutas principales.
+- `src/pages/HomePage.tsx` compone la landing.
+- `src/pages/AboutPage.tsx` compone la página de Nosotros.
+- `src/app/components/` contiene las secciones reutilizables.
+- `src/assets/` contiene imágenes locales del producto, logo y preview de app.
+- `src/styles/index.css` importa Tailwind, fuentes y estilos globales.
+- `src/styles/theme.css` contiene variables, estilos base, animaciones y sistema visual.
 
-## Routing
+## Rutas
 
-The project uses `HashRouter` because it is deployed on GitHub Pages.
+Se usa `HashRouter` porque el sitio se publica en GitHub Pages como sitio estático.
 
-Current routes:
+Rutas actuales:
 
-- `/#/` — landing page
-- `/#/nosotros` — about page
+- `/#/`: landing principal.
+- `/#/nosotros`: página de Nosotros.
 
-This avoids 404 issues on static hosting.
+Esto evita errores 404 al refrescar o entrar directo a una ruta interna en GitHub Pages.
+
+## Secciones principales
+
+La landing está compuesta por:
+
+- `Navbar`: navegación principal, con enlace a Nosotros y CTA.
+- `Hero`: primer impacto visual, mensaje principal y llamadas a la acción.
+- `ExperienceFlow`: sección de flujo con narrativa visual del sistema Croak.
+- `ProblemSolution`: señales claras y beneficios del monitoreo.
+- `AppPreview`: preview de la app y acciones principales.
+- `FAQ`: preguntas frecuentes con acordeón.
+- `FinalCTA`: cierre de conversión.
+- `Footer`: enlaces útiles, redes y contacto.
 
 ## Assets
 
-Current local image assets:
+Assets locales actuales:
 
-- `croak_logo.png` — official Croak logo
-- `croak_hero.png` — hero image
-- `preview_app.png` — real prototype preview used in the app section
+- `croak_logo.png`: logo de Croak.
+- `croak_hero.png`: imagen del dispositivo físico.
+- `preview_app.png`: captura de la app móvil.
 
-## Current Navigation Behavior
+Los assets se importan desde componentes para que Vite los procese correctamente durante el build.
+
+## Navegación actual
 
 ### Navbar
 
-- `Nosotros` — goes to the About page
-- `Comprar ahora` — visible CTA, no purchase flow yet
+- `Nosotros`: abre la página de Nosotros.
+- `Quiero Croak`: lleva al CTA final en la landing.
 
 ### Footer
 
-- `Nosotros` goes to `/#/nosotros`
-- `Quiero Croak` and `Soporte` use email
-- `Demo app` opens the external app preview
-- legal links are intentionally omitted until those pages exist
+- `Nosotros`: abre la página de Nosotros.
+- `Quiero Croak`: abre correo para contacto comercial.
+- `Soporte`: abre correo de soporte/contacto.
+- `Demo app`: abre la preview externa de la app.
+- Iconos sociales: YouTube, GitHub e Instagram.
 
-## Contact
+## Contacto
 
-Temporary contact and support email:
+Correo actual de contacto:
 
-`croakfernando@gmail.com`
+```text
+croakfernando@gmail.com
+```
 
-## Team Workflow
+## Flujo recomendado de trabajo
 
-1. Pull latest changes
-2. Create a branch
-3. Make changes
-4. Test locally
-5. Commit clearly
-6. Push branch
-7. Open a PR or share the branch for review
+1. Actualiza tu rama local.
+2. Crea una rama nueva o trabaja sobre la rama de diseño correspondiente.
+3. Haz cambios pequeños y revisables.
+4. Corre el build.
+5. Revisa visualmente en local, especialmente móvil.
+6. Haz commit con un mensaje claro.
+7. Sube los cambios.
+8. Despliega con `npm run deploy` cuando la versión esté lista.
 
-Suggested branch names:
+## Comandos útiles de Git
 
-`feature/hero-animation`
-`feature/about-page-copy`
-`fix/github-pages-routing`
-`refactor/footer-links`
+Crear una rama:
 
-Suggested commit messages:
+```bash
+git switch -c feature/nombre-del-cambio
+```
 
-`feat: add about page and routing`
-`fix: correct GitHub Pages hash links`
-`style: refine navbar spacing`
-`docs: update project readme`
+Ver cambios:
 
-## Rules
+```bash
+git status
+git diff
+```
 
-- Do not commit `node_modules`
-- Do not commit local editor junk
-- `dist/` is generated output; deploy uses it, but source work should happen in `src/`
-- Test locally before pushing
-- Keep commits focused and descriptive
-- Avoid adding dependencies unless they are actually needed
-- Prefer improving existing components instead of duplicating sections
+Crear commit:
 
-## Notes
+```bash
+git add .
+git commit -m "feat: describe el cambio"
+```
 
-- This project uses `HashRouter`, so internal page links should follow the GitHub Pages routing strategy
-- Some Tailwind v4 CSS directives may show editor warnings in VS Code even when the project builds correctly
-- If assets fail in production, prefer importing them into components instead of hardcoding string paths
+Subir rama:
 
-## Recommended First Files to Learn
+```bash
+git push -u origin feature/nombre-del-cambio
+```
 
-If you are new to the codebase, start with:
+Forzar `main` con una rama local, si se quiere reemplazar `main` con esa versión:
 
-- `src/main.tsx`
-- `src/app/App.tsx`
+```bash
+git push origin nombre-de-rama:main --force-with-lease
+```
+
+## Convención de commits
+
+Usa mensajes tipo Conventional Commits:
+
+- `feat:` para funcionalidades nuevas.
+- `fix:` para correcciones.
+- `refactor:` para reorganización sin cambiar comportamiento.
+- `style:` para cambios visuales o de formato.
+- `docs:` para documentación.
+- `chore:` para tareas de mantenimiento.
+
+Ejemplos:
+
+```text
+feat: redesign Croak landing experience
+fix: improve hero mobile layout
+refactor: simplify navigation links
+docs: update Spanish readme
+```
+
+## Notas de mantenimiento
+
+- No commitear `node_modules`.
+- No editar `dist/` manualmente.
+- `dist/` es salida generada por `npm run build`.
+- Mantener `vite-env.d.ts`; ayuda con los tipos de Vite y assets importados.
+- Probar en móvil antes de publicar, porque el sitio se compartirá por QR.
+- Evitar dependencias nuevas si el efecto se puede resolver con React, Tailwind o CSS.
+- Preferir componentes existentes antes de duplicar secciones.
+
+## Archivos recomendados para empezar
+
+Si vas a modificar el sitio, empieza por:
+
 - `src/pages/HomePage.tsx`
-- `src/pages/AboutPage.tsx`
-- `src/app/components/Navbar.tsx`
 - `src/app/components/Hero.tsx`
+- `src/app/components/ExperienceFlow.tsx`
 - `src/app/components/AppPreview.tsx`
+- `src/app/components/FAQ.tsx`
 - `src/app/components/Footer.tsx`
+- `src/pages/AboutPage.tsx`
 - `src/styles/theme.css`
 
-## Typical Git Flow
+## Publicación rápida
 
-Create a branch:
+Para publicar una versión ya validada:
 
-`git checkout -b feature/your-branch-name`
+```bash
+npm run build
+npm run deploy
+```
 
-Commit changes:
+Después revisa:
 
-`git add .`
-`git commit -m "feat: describe your change"`
-
-Push branch:
-
-`git push -u origin feature/your-branch-name`
-
-Deploy latest production build:
-
-`npm run deploy`
+[https://santiagocachoo.github.io/croak_webpage/](https://santiagocachoo.github.io/croak_webpage/)
