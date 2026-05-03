@@ -7,14 +7,6 @@ type NavbarProps = {
   isLanding?: boolean;
 };
 
-const landingLinks = [
-  { label: "Producto", sectionId: "product" },
-  { label: "Flujo", sectionId: "experience" },
-  { label: "Señales", sectionId: "features" },
-  { label: "App", sectionId: "how-it-works" },
-  { label: "Preguntas", sectionId: "faq" },
-];
-
 export function Navbar({ isLanding = false }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -107,16 +99,6 @@ export function Navbar({ isLanding = false }: NavbarProps) {
           </button>
 
           <div className="hidden items-center gap-5 lg:gap-7 md:flex">
-            {landingLinks.map((link) => (
-              <button
-                key={link.sectionId}
-                type="button"
-                onClick={() => handleSectionNavigation(link.sectionId)}
-                className="rounded-md text-sm font-bold text-[#254235]/70 transition-colors hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
-              >
-                {link.label}
-              </button>
-            ))}
             <button
               type="button"
               onClick={handleAboutNavigation}
@@ -157,16 +139,6 @@ export function Navbar({ isLanding = false }: NavbarProps) {
           className="border-t border-[#0c4f36]/10 bg-[#fbfff8]/96 px-5 py-5 shadow-2xl backdrop-blur-2xl md:hidden"
         >
           <div className="flex flex-col gap-2">
-            {landingLinks.map((link) => (
-              <button
-                key={link.sectionId}
-                type="button"
-                onClick={() => handleSectionNavigation(link.sectionId)}
-                className="rounded-xl px-3 py-3 text-left text-base font-bold text-[#254235]/78 transition-colors hover:bg-[#dffbea] hover:text-[#07110d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f8f5b]"
-              >
-                {link.label}
-              </button>
-            ))}
             <button
               type="button"
               onClick={handleAboutNavigation}

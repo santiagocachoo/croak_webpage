@@ -1,42 +1,9 @@
 import { Github, Instagram, Youtube } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import croakLogo from "../../assets/croak_logo.png";
 
-type FooterProps = {
-  isLanding?: boolean;
-};
-
-const footerProductLinks = [
-  { label: "Producto", sectionId: "product" },
-  { label: "Flujo", sectionId: "experience" },
-  { label: "Señales", sectionId: "features" },
-  { label: "App", sectionId: "how-it-works" },
-  { label: "Preguntas", sectionId: "faq" },
-];
-
-export function Footer({ isLanding = false }: FooterProps) {
+export function Footer() {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const scrollToSection = (sectionId: string) => {
-    const targetElement = document.getElementById(sectionId);
-
-    if (!targetElement) {
-      return;
-    }
-
-    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const handleSectionNavigation = (sectionId: string) => {
-    if (!isLanding || location.pathname !== "/") {
-      navigate("/");
-      window.setTimeout(() => scrollToSection(sectionId), 80);
-      return;
-    }
-
-    scrollToSection(sectionId);
-  };
 
   const handleAboutNavigation = () => {
     navigate("/nosotros");
@@ -45,8 +12,8 @@ export function Footer({ isLanding = false }: FooterProps) {
   return (
     <footer className="border-t border-[#0c4f36]/10 bg-[#fbfff8] px-5 py-16 text-[#07110d] sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1440px]">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div className="md:col-span-2">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_0.8fr]">
+          <div>
             <div className="mb-5 flex items-center gap-3">
               <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white shadow-[0_14px_34px_rgba(19,88,59,0.12)]">
                 <img
@@ -64,7 +31,7 @@ export function Footer({ isLanding = false }: FooterProps) {
             </p>
             <div className="mt-7 flex items-center gap-3">
               <a
-                href="https://www.youtube.com/watch?v=FUGFZccrcwI"
+                href="https://www.youtube.com/watch?v=5xsPYnQADno"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white text-[#254235]/70 shadow-[0_14px_34px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/50 hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
@@ -94,25 +61,7 @@ export function Footer({ isLanding = false }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="mb-4 font-black text-[#07110d]">Producto</h4>
-            <ul className="space-y-3 text-[#254235]/66">
-              {footerProductLinks.map((link) => (
-                <li key={link.sectionId}>
-                  <button
-                    type="button"
-                    onClick={() => handleSectionNavigation(link.sectionId)}
-                    className="text-left transition-colors hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-              <li><a href="mailto:croakfernando@gmail.com?subject=Quiero%20Croak" className="transition-colors hover:text-[#0f8f5b]">Comprar ahora</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-black text-[#07110d]">Empresa</h4>
+            <h4 className="mb-4 font-black text-[#07110d]">Enlaces</h4>
             <ul className="space-y-3 text-[#254235]/66">
               <li>
                 <button
@@ -123,7 +72,8 @@ export function Footer({ isLanding = false }: FooterProps) {
                   Nosotros
                 </button>
               </li>
-              <li><a href="mailto:croakfernando@gmail.com" className="transition-colors hover:text-[#0f8f5b]">Contacto</a></li>
+              <li><a href="mailto:croakfernando@gmail.com?subject=Quiero%20Croak" className="transition-colors hover:text-[#0f8f5b]">Quiero Croak</a></li>
+              <li><a href="mailto:croakfernando@gmail.com" className="transition-colors hover:text-[#0f8f5b]">Soporte</a></li>
               <li><a href="https://fernandox89.github.io/app_croak/" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#0f8f5b]">Demo app</a></li>
             </ul>
           </div>

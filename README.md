@@ -142,17 +142,14 @@ Current local image assets:
 
 ### Navbar
 
-- `Producto` — goes to hero / landing start
-- `Características` — goes to the benefits section
-- `Cómo funciona` — opens the demo video or returns to the landing depending on page context
-- `Preguntas` — goes to FAQ
+- `Nosotros` — goes to the About page
 - `Comprar ahora` — visible CTA, no purchase flow yet
 
 ### Footer
 
-- product links mirror the landing sections
 - `Nosotros` goes to `/#/nosotros`
-- `Contacto` and `Soporte` use email
+- `Quiero Croak` and `Soporte` use email
+- `Demo app` opens the external app preview
 - legal links are intentionally omitted until those pages exist
 
 ## Contact
