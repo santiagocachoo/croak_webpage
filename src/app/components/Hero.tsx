@@ -55,7 +55,7 @@ export function Hero() {
               aria-label="Ver video de cómo funciona Croak en YouTube"
             >
               <Play className="h-5 w-5 text-[#0f8f5b]" aria-hidden="true" />
-              Ver demo
+              Ver cómo funciona
             </a>
           </div>
 
