@@ -43,7 +43,7 @@ export function ProblemSolution() {
       <div className="relative mx-auto max-w-[1440px]">
         <div className="croak-scroll-reveal grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-[#0f8f5b]">Algo va aqui</p>
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-[#0f8f5b]">Señales claras</p>
             <h2 className="mt-5 max-w-3xl text-4xl font-black leading-none tracking-tight sm:text-5xl lg:text-6xl">
               Visualiza el estado de tu agua en segundos.
             </h2>

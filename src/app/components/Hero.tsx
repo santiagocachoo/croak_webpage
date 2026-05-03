@@ -30,7 +30,7 @@ export function Hero() {
           </p>
 
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-[#07110d] sm:text-6xl lg:text-7xl">
-            Frase llamativa.
+            El estado de tu agua, siempre visible.
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[#254235]/78 sm:text-xl">

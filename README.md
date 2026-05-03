@@ -153,7 +153,7 @@ Current local image assets:
 - product links mirror the landing sections
 - `Nosotros` goes to `/#/nosotros`
 - `Contacto` and `Soporte` use email
-- legal placeholder links were removed for now
+- legal links are intentionally omitted until those pages exist
 
 ## Contact
 
