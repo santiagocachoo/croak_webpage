@@ -29,7 +29,7 @@ const faqs = [
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {
     setOpenIndex((currentIndex) => {
@@ -63,36 +63,44 @@ export function FAQ() {
         </div>
 
         <div className="croak-scroll-reveal overflow-hidden rounded-3xl border border-[#0c4f36]/12 bg-white/86 shadow-[0_28px_90px_rgba(19,88,59,0.12)] backdrop-blur-xl">
-          {faqs.map((faq, index) => (
-            <div key={faq.question} className="border-b border-[#0c4f36]/10 last:border-b-0">
-              <button
-                type="button"
-                onClick={() => handleToggle(index)}
-                className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors hover:bg-[#ecfff3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#0f8f5b] sm:px-7"
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <span className="font-black text-[#07110d]">
-                  {faq.question}
-                </span>
-                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#07110d] text-[#9dffd0] transition-transform">
-                  {openIndex === index ? (
-                    <Minus className="h-4 w-4" aria-hidden="true" />
-                  ) : (
-                    <Plus className="h-4 w-4" aria-hidden="true" />
-                  )}
-                </span>
-              </button>
-              {openIndex === index && (
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+
+            return (
+              <div key={faq.question} className="border-b border-[#0c4f36]/10 last:border-b-0">
+                <button
+                  type="button"
+                  onClick={() => handleToggle(index)}
+                  className={`flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors duration-300 hover:bg-[#ecfff3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#0f8f5b] sm:px-7 ${isOpen ? "bg-[#ecfff3]/70" : ""}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <span className="font-black text-[#07110d]">
+                    {faq.question}
+                  </span>
+                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#07110d] text-[#9dffd0] transition-transform duration-300">
+                    {isOpen ? (
+                      <Minus className="h-4 w-4" aria-hidden="true" />
+                    ) : (
+                      <Plus className="h-4 w-4" aria-hidden="true" />
+                    )}
+                  </span>
+                </button>
                 <div
                   id={`faq-answer-${index}`}
-                  className="px-5 pb-6 leading-7 text-[#254235]/76 sm:px-7"
+                  role="region"
+                  aria-hidden={!isOpen}
+                  className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                 >
-                  {faq.answer}
+                  <div className="overflow-hidden">
+                    <p className="px-5 pb-6 leading-7 text-[#254235]/76 sm:px-7">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
