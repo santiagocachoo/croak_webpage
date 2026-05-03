@@ -48,7 +48,7 @@ export function Hero() {
             </a>
 
             <a
-              href="https://www.youtube.com/watch?v=FUGFZccrcwI"
+              href="https://youtu.be/5xsPYnQADno"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-xl border border-[#0c4f36]/14 bg-white/72 px-6 py-4 font-black text-[#07110d] shadow-[0_18px_44px_rgba(19,88,59,0.1)] backdrop-blur-xl transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
