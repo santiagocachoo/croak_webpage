@@ -2,8 +2,8 @@
 
 :root {
   --font-size: 16px;
-  --background: #f8fafc;
-  --foreground: #1e293b;
+  --background: #fbfff8;
+  --foreground: #07110d;
   --card: #ffffff;
   --card-foreground: #1e293b;
   --popover: oklch(1 0 0);
@@ -41,9 +41,11 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   /* Croak Custom Colors */
-  --croak-green: #2d6a4f;
+  --croak-green: #1b6d49;
+  --croak-lime: #7cffb2;
   --croak-blue: #1a759f;
-  --croak-mist: #f8fafc;
+  --croak-mist: #ecfff3;
+  --croak-ink: #07110d;
 }
 
 .dark {
@@ -131,6 +133,11 @@
 
   body {
     @apply bg-background text-foreground;
+    min-width: 320px;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /**
@@ -139,6 +146,7 @@
   */
 
   html {
+    scroll-behavior: smooth;
     font-size: var(--font-size);
     font-family:
       "Inter",
@@ -202,5 +210,240 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+@layer components {
+  .croak-hero-field {
+    background:
+      linear-gradient(120deg, rgba(15, 143, 91, 0.08) 0 1px, transparent 1px 24px),
+      linear-gradient(0deg, rgba(21, 134, 168, 0.07) 0 1px, transparent 1px 28px),
+      radial-gradient(ellipse at 72% 40%, rgba(157, 255, 208, 0.7), transparent 34rem),
+      radial-gradient(ellipse at 18% 76%, rgba(186, 235, 255, 0.58), transparent 28rem),
+      linear-gradient(135deg, #fbfff8 0%, #eefef4 48%, #f8fffb 100%);
+  }
+
+  .croak-cta-field {
+    background:
+      linear-gradient(90deg, rgba(15, 143, 91, 0.11) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(21, 134, 168, 0.09) 1px, transparent 1px),
+      radial-gradient(ellipse at 72% 35%, rgba(157, 255, 208, 0.62), transparent 28rem),
+      linear-gradient(135deg, #f7fffa, #eafff1);
+    background-size: 64px 64px, 64px 64px, auto, auto;
+  }
+
+  .croak-dot-field {
+    background-image:
+      radial-gradient(circle, rgba(15, 143, 91, 0.12) 1px, transparent 1px),
+      linear-gradient(120deg, rgba(21, 134, 168, 0.05), transparent 40%);
+    background-size: 24px 24px, auto;
+  }
+
+  .croak-water-thread {
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(15, 143, 91, 0.35), rgba(21, 134, 168, 0.28), transparent);
+    transform: rotate(-8deg);
+    animation: croak-water-thread 9s ease-in-out infinite;
+  }
+
+  .croak-water-thread-a {
+    top: 22%;
+  }
+
+  .croak-water-thread-b {
+    bottom: 18%;
+    animation-delay: 2s;
+    opacity: 0.72;
+  }
+
+  .croak-wave-band {
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(15, 143, 91, 0.22) 50%, transparent 100%),
+      repeating-linear-gradient(90deg, rgba(21, 134, 168, 0.18) 0 1px, transparent 1px 26px);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black, transparent);
+  }
+
+  .croak-soft-panel {
+    min-height: 220px;
+  }
+
+  .croak-scroll-reveal {
+    opacity: 1;
+  }
+
+  .croak-scroll-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.58) 45%, transparent 62%);
+    transform: translateX(-100%);
+    animation: croak-stage-shimmer 8s ease-in-out infinite;
+  }
+
+  .croak-flow-map {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(15, 143, 91, 0.11) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(21, 134, 168, 0.09) 1px, transparent 1px),
+      repeating-linear-gradient(135deg, transparent 0 24px, rgba(15, 143, 91, 0.08) 24px 25px);
+    background-size: 52px 52px, 52px 52px, auto;
+    opacity: 0.72;
+  }
+
+  .croak-signal-track {
+    animation: croak-signal-track 20s linear infinite;
+    padding-left: 1rem;
+  }
+
+  .croak-reveal {
+    animation: croak-reveal 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .croak-reveal-delay {
+    animation-delay: 140ms;
+  }
+
+  .croak-device-float {
+    animation: croak-device-float 7s ease-in-out infinite;
+  }
+
+  .croak-scan-line {
+    position: absolute;
+    inset: 6% 16%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, transparent, rgba(15, 143, 91, 0.28), transparent);
+    filter: blur(0.5px);
+    opacity: 0.5;
+    transform: translateY(-30%);
+    animation: croak-scan 4.5s ease-in-out infinite;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .croak-scroll-reveal {
+    animation: croak-view-rise both ease-out;
+    animation-timeline: view();
+    animation-range: entry 8% cover 34%;
+  }
+
+  .croak-scroll-float {
+    animation: croak-view-float both ease-out;
+    animation-timeline: view();
+    animation-range: entry 0% cover 58%;
+  }
+}
+
+@keyframes croak-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes croak-device-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.5deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(0.7deg);
+  }
+}
+
+@keyframes croak-scan {
+  0% {
+    opacity: 0;
+    transform: translateY(-26%);
+  }
+
+  45%,
+  55% {
+    opacity: 0.64;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(26%);
+  }
+}
+
+@keyframes croak-water-thread {
+  0%,
+  100% {
+    transform: translateX(-5%) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateX(5%) rotate(-8deg);
+  }
+}
+
+@keyframes croak-stage-shimmer {
+  0%,
+  42%,
+  100% {
+    transform: translateX(-100%);
+  }
+
+  64% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes croak-signal-track {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes croak-view-rise {
+  from {
+    opacity: 0;
+    transform: translateY(34px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes croak-view-float {
+  from {
+    transform: translateY(34px) scale(0.96) rotate(-2deg);
+  }
+
+  to {
+    transform: translateY(-10px) scale(1.02) rotate(1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

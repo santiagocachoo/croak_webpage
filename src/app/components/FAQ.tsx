@@ -1,88 +1,99 @@
-import { Plus, Minus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 
 const faqs = [
   {
     question: "¿Cómo monitorea Croak la calidad del agua?",
-    answer: "Croak usa sensores integrados para seguir de forma continua indicadores clave de la calidad del agua, incluyendo nivel de pH, temperatura y turbidez. El dispositivo monitorea tu agua 24/7 y envía actualizaciones en tiempo real a la app móvil."
+    answer: "Croak usa sensores integrados para seguir de forma continua indicadores clave de la calidad del agua, incluyendo nivel de pH, temperatura y turbidez. El dispositivo monitorea tu agua 24/7 y envía actualizaciones en tiempo real a la app móvil.",
   },
   {
     question: "¿Cómo instalo Croak?",
-    answer: "Croak está diseñado para una instalación sencilla. Solo conéctalo a tu línea de agua siguiendo las instrucciones incluidas. El dispositivo se conecta a tu red WiFi y se vincula con la app móvil en minutos. No se requiere instalación profesional."
+    answer: "Croak está diseñado para una instalación sencilla. Solo conéctalo a tu línea de agua siguiendo las instrucciones incluidas. El dispositivo se conecta a tu red WiFi y se vincula con la app móvil en minutos. No se requiere instalación profesional.",
   },
   {
     question: "¿Recibiré alertas si algo cambia?",
-    answer: "Sí. Cuando las lecturas de calidad del agua salen de los rangos esperados, Croak envía notificaciones al instante a tu celular para que puedas responder rápido. Puedes personalizar los umbrales de alerta desde la app."
+    answer: "Sí. Cuando las lecturas de calidad del agua salen de los rangos esperados, Croak envía notificaciones al instante a tu celular para que puedas responder rápido. Puedes personalizar los umbrales de alerta desde la app.",
   },
   {
     question: "¿Qué necesito para usar Croak?",
-    answer: "Necesitas una conexión WiFi y un smartphone con iOS o Android para usar la app de Croak. El dispositivo requiere una toma de corriente estándar y acceso a la línea de agua de tu hogar."
+    answer: "Necesitas una conexión WiFi y un smartphone con iOS o Android para usar la app de Croak. El dispositivo requiere una toma de corriente estándar y acceso a la línea de agua de tu hogar.",
   },
   {
     question: "¿Qué tan preciso es el monitoreo?",
-    answer: "Croak utiliza sensores calibrados para el monitoreo continuo del agua en el hogar. Aunque no reemplaza un análisis profesional de laboratorio, ofrece un seguimiento confiable de los cambios diarios en la calidad del agua."
+    answer: "Croak utiliza sensores calibrados para el monitoreo continuo del agua en el hogar. Aunque no reemplaza un análisis profesional de laboratorio, ofrece un seguimiento confiable de los cambios diarios en la calidad del agua.",
   },
   {
     question: "¿Qué incluye la compra?",
-    answer: "Tu compra de Croak incluye el dispositivo de monitoreo, adaptador de corriente, accesorios de instalación, guía de inicio rápido y acceso sin costo a la app móvil. También incluye un año de garantía."
-  }
+    answer: "Tu compra de Croak incluye el dispositivo de monitoreo, adaptador de corriente, accesorios de instalación, guía de inicio rápido y acceso sin costo a la app móvil. También incluye un año de garantía.",
+  },
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex((currentIndex) => {
+      if (currentIndex === index) {
+        return null;
+      }
+
+      return index;
+    });
+  };
 
   return (
-    <section className="py-24 px-6 lg:px-8 max-w-4xl mx-auto" id="faq">
-      {/* Section Header */}
-      <div className="text-center mb-16">
-        <div className="inline-block px-4 py-2 bg-[#2D6A4F]/10 rounded-[24px] text-[#2D6A4F] text-sm font-medium mb-6">
-          Preguntas frecuentes
-        </div>
-        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
-          Preguntas frecuentes
-        </h2>
-        <p className="text-lg text-gray-600">
-          Todo lo que necesitas saber sobre el monitoreo de agua con Croak.
-        </p>
-      </div>
-
-      {/* FAQ Items */}
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-[24px] border border-gray-100 shadow-sm overflow-hidden transition-all hover:shadow-md"
+    <section className="relative overflow-hidden bg-white px-5 py-24 text-[#07110d] sm:px-8 lg:px-12" id="faq">
+      <div className="croak-dot-field absolute inset-0 opacity-60" aria-hidden="true" />
+      <div className="relative mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="croak-scroll-reveal">
+          <p className="text-sm font-black uppercase tracking-[0.24em] text-[#0f8f5b]">Preguntas frecuentes</p>
+          <h2 className="mt-5 text-4xl font-black leading-none tracking-tight sm:text-5xl">
+            Lo importante, sin letra chiquita.
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-[#254235]/76">
+            Croak está pensado para monitoreo doméstico y lectura preventiva. No reemplaza un laboratorio certificado, pero sí te ayuda a detectar cambios cotidianos antes.
+          </p>
+          <a
+            href="mailto:croakfernando@gmail.com"
+            className="mt-8 inline-flex rounded-xl border border-[#0c4f36]/14 bg-[#fbfff8] px-5 py-3 font-black text-[#07110d] shadow-[0_18px_42px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+            aria-label="Contactar al equipo de Croak por correo"
           >
-            <button
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-            >
-              <span className="font-semibold text-gray-900 pr-8" style={{ fontFamily: 'Plus Jakarta Sans' }}>
-                {faq.question}
-              </span>
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#2D6A4F]/10 flex items-center justify-center">
-                {openIndex === index ? (
-                  <Minus className="w-4 h-4 text-[#2D6A4F]" />
-                ) : (
-                  <Plus className="w-4 h-4 text-[#2D6A4F]" />
-                )}
-              </div>
-            </button>
-            {openIndex === index && (
-              <div className="px-6 pb-5 text-gray-600 leading-relaxed">
-                {faq.answer}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+            Hablar con el equipo
+          </a>
+        </div>
 
-      {/* Contact CTA */}
-      <div className="mt-12 text-center">
-        <p className="text-gray-600 mb-4">¿Todavía tienes dudas?</p>
-        <a href="mailto:croakfernando@gmail.com" className="text-[#2D6A4F] font-semibold hover:text-[#245a41] transition-colors">
-          Contactar soporte →
-        </a>
+        <div className="croak-scroll-reveal overflow-hidden rounded-3xl border border-[#0c4f36]/12 bg-white/86 shadow-[0_28px_90px_rgba(19,88,59,0.12)] backdrop-blur-xl">
+          {faqs.map((faq, index) => (
+            <div key={faq.question} className="border-b border-[#0c4f36]/10 last:border-b-0">
+              <button
+                type="button"
+                onClick={() => handleToggle(index)}
+                className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors hover:bg-[#ecfff3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#0f8f5b] sm:px-7"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+              >
+                <span className="font-black text-[#07110d]">
+                  {faq.question}
+                </span>
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#07110d] text-[#9dffd0] transition-transform">
+                  {openIndex === index ? (
+                    <Minus className="h-4 w-4" aria-hidden="true" />
+                  ) : (
+                    <Plus className="h-4 w-4" aria-hidden="true" />
+                  )}
+                </span>
+              </button>
+              {openIndex === index && (
+                <div
+                  id={`faq-answer-${index}`}
+                  className="px-5 pb-6 leading-7 text-[#254235]/76 sm:px-7"
+                >
+                  {faq.answer}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

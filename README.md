@@ -94,9 +94,7 @@ croak_webpage/
 │   │   ├── HomePage.tsx
 │   │   └── AboutPage.tsx
 │   ├── styles/
-│   │   ├── fonts.css
 │   │   ├── index.css
-│   │   ├── tailwind.css
 │   │   └── theme.css
 │   ├── main.tsx
 │   └── vite-env.d.ts

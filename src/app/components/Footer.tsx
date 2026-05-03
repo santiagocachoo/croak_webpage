@@ -1,71 +1,139 @@
-import { Twitter, Linkedin, Instagram, Youtube, Github } from "lucide-react";
+import { Github, Instagram, Youtube } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import croakLogo from "../../assets/croak_logo.png";
 
 type FooterProps = {
   isLanding?: boolean;
 };
 
+const footerProductLinks = [
+  { label: "Producto", sectionId: "product" },
+  { label: "Flujo", sectionId: "experience" },
+  { label: "Señales", sectionId: "features" },
+  { label: "App", sectionId: "how-it-works" },
+  { label: "Preguntas", sectionId: "faq" },
+];
+
 export function Footer({ isLanding = false }: FooterProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    const targetElement = document.getElementById(sectionId);
+
+    if (!targetElement) {
+      return;
+    }
+
+    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleSectionNavigation = (sectionId: string) => {
+    if (!isLanding || location.pathname !== "/") {
+      navigate("/");
+      window.setTimeout(() => scrollToSection(sectionId), 80);
+      return;
+    }
+
+    scrollToSection(sectionId);
+  };
+
+  const handleAboutNavigation = () => {
+    navigate("/nosotros");
+  };
+
   return (
-    <footer className="bg-gray-900 text-gray-300 py-16 px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Top Section */}
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
+    <footer className="border-t border-[#0c4f36]/10 bg-[#fbfff8] px-5 py-16 text-[#07110d] sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img
-                src={croakLogo}
-                alt="Logo de Croak"
-                className="w-10 h-10 object-contain"
-              />
-              <span className="text-2xl font-bold text-white tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>
+            <div className="mb-5 flex items-center gap-3">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white shadow-[0_14px_34px_rgba(19,88,59,0.12)]">
+                <img
+                  src={croakLogo}
+                  alt="Logo de Croak"
+                  className="h-9 w-9 object-contain"
+                />
+              </span>
+              <span className="text-2xl font-black text-[#07110d]">
                 Croak
               </span>
             </div>
-            <p className="text-gray-400 mb-6 max-w-sm">
-              Monitoreo inteligente de la calidad del agua para el hogar. Sigue los cambios, revisa el estado y mantente informado desde tu celular.
+            <p className="max-w-md leading-7 text-[#254235]/66">
+              Hardware y app para que la calidad del agua deje de ser una suposición. Lecturas claras, alertas útiles y una experiencia pensada para revisarse diario.
             </p>
-            <div className="flex items-center gap-4">
-              <a href="https://www.youtube.com/watch?v=FUGFZccrcwI" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#2D6A4F] flex items-center justify-center transition-colors">
-                <Youtube className="w-5 h-5" />
+            <div className="mt-7 flex items-center gap-3">
+              <a
+                href="https://www.youtube.com/watch?v=FUGFZccrcwI"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white text-[#254235]/70 shadow-[0_14px_34px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/50 hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+                aria-label="Ver Croak en YouTube"
+              >
+                <Youtube className="h-5 w-5" aria-hidden="true" />
               </a>
-              <a href="https://github.com/santiagocachoo/croak_webpage" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#2D6A4F] flex items-center justify-center transition-colors">
-                <Github className="w-5 h-5" />
+              <a
+                href="https://github.com/santiagocachoo/croak_webpage"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white text-[#254235]/70 shadow-[0_14px_34px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/50 hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+                aria-label="Ver repositorio de Croak en GitHub"
+              >
+                <Github className="h-5 w-5" aria-hidden="true" />
               </a>
-              <a href="https://www.instagram.com/croaksafe" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#2D6A4F] flex items-center justify-center transition-colors">
-                <Instagram className="w-5 h-5" />
+              <a
+                href="https://www.instagram.com/croaksafe"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white text-[#254235]/70 shadow-[0_14px_34px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/50 hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+                aria-label="Ver Instagram de Croak"
+              >
+                <Instagram className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>
           </div>
 
-          {/* Links */}
           <div>
-            <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Producto</h4>
-            <ul className="space-y-3">
-              <li><a href={isLanding ? "#product" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Producto</a></li>
-              <li><a href={isLanding ? "#features" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Características</a></li>
-              <li><a href={isLanding ? "#how-it-works" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Cómo funciona</a></li>
-              <li><a href={isLanding ? "#faq" : "#/"} className="hover:text-[#2D6A4F] transition-colors">Preguntas frecuentes</a></li>
-              <li><span className="hover:text-[#2D6A4F] transition-colors">Comprar ahora</span></li>
+            <h4 className="mb-4 font-black text-[#07110d]">Producto</h4>
+            <ul className="space-y-3 text-[#254235]/66">
+              {footerProductLinks.map((link) => (
+                <li key={link.sectionId}>
+                  <button
+                    type="button"
+                    onClick={() => handleSectionNavigation(link.sectionId)}
+                    className="text-left transition-colors hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+              <li><a href="mailto:croakfernando@gmail.com?subject=Quiero%20Croak" className="transition-colors hover:text-[#0f8f5b]">Comprar ahora</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Empresa</h4>
-            <ul className="space-y-3">
-              <li><a href="#/nosotros" className="hover:text-[#2D6A4F] transition-colors">Nosotros</a></li>
-              <li><a href="mailto:croakfernando@gmail.com" className="hover:text-[#2D6A4F] transition-colors">Contacto</a></li>
-              <li><a href="mailto:croakfernando@gmail.com" className="hover:text-[#2D6A4F] transition-colors">Soporte</a></li>
+            <h4 className="mb-4 font-black text-[#07110d]">Empresa</h4>
+            <ul className="space-y-3 text-[#254235]/66">
+              <li>
+                <button
+                  type="button"
+                  onClick={handleAboutNavigation}
+                  className="text-left transition-colors hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+                >
+                  Nosotros
+                </button>
+              </li>
+              <li><a href="mailto:croakfernando@gmail.com" className="transition-colors hover:text-[#0f8f5b]">Contacto</a></li>
+              <li><a href="https://fernandox89.github.io/app_croak/" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#0f8f5b]">Demo app</a></li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-500">
-            © 2026 Croak Technologies, Inc. Todos los derechos reservados.
+        <div className="mt-12 flex flex-col gap-4 border-t border-[#0c4f36]/10 pt-8 text-sm font-bold text-[#254235]/48 md:flex-row md:items-center md:justify-between">
+          <p>
+            © 2026 Croak. Todos los derechos reservados.
           </p>
+          <p>Monitoreo preventivo de calidad de agua.</p>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import { Navbar } from "../app/components/Navbar";
 import { Hero } from "../app/components/Hero";
+import { ExperienceFlow } from "../app/components/ExperienceFlow";
 import { ProblemSolution } from "../app/components/ProblemSolution";
 import { AppPreview } from "../app/components/AppPreview";
 import { FAQ } from "../app/components/FAQ";
@@ -10,12 +11,15 @@ export function HomePage() {
   return (
     <>
       <Navbar isLanding />
-      <Hero />
-      <ProblemSolution />
-      <AppPreview />
-      <FAQ />
-      <FinalCTA />
-      <Footer isLanding/>
+      <main>
+        <Hero />
+        <ExperienceFlow />
+        <ProblemSolution />
+        <AppPreview />
+        <FAQ />
+        <FinalCTA />
+      </main>
+      <Footer isLanding />
     </>
   );
 }
