@@ -110,7 +110,7 @@ export function ExperienceFlow() {
             La experiencia se siente viva porque la señal nunca se detiene.
           </h2>
           <p className="croak-scroll-reveal mt-6 max-w-2xl text-lg leading-8 text-[#254235]/76">
-            Cada parte de la página cuenta el mismo producto: un sistema que observa, interpreta y te avisa con claridad. El scroll acompaña ese viaje para que Croak se entienda como experiencia, no solo como aparato.
+            Croak conecta el dispositivo, las lecturas y la app para que sepas qué está pasando con tu agua en cada momento. Si algo cambia, recibes contexto claro para actuar antes de que se vuelva un problema.
           </p>
 
           <div className="mt-12 space-y-6">
