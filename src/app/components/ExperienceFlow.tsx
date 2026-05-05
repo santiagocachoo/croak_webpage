@@ -1,5 +1,5 @@
 import { BellRing, Droplets, Gauge, RadioTower, ShieldCheck, Smartphone } from "lucide-react";
-import croakHero from "../../assets/croak_hero.png";
+import croakModelExploded from "../../assets/croak_model_exploded.png";
 
 const flowSteps = [
   {
@@ -82,9 +82,9 @@ export function ExperienceFlow() {
               </div>
 
               <img
-                src={croakHero}
-                alt="Dispositivo Croak dentro de una escena de monitoreo"
-                className="croak-scroll-float relative z-10 w-full max-w-[390px] object-contain drop-shadow-[0_36px_70px_rgba(19,88,59,0.22)]"
+                src={croakModelExploded}
+                alt="Modelo 3D de Croak con componentes internos visibles"
+                className="croak-scroll-float relative z-10 w-full max-w-[520px] rounded-[1.4rem] border border-white/70 object-contain shadow-[0_34px_80px_rgba(19,88,59,0.18)]"
               />
             </div>
 

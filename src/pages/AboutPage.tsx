@@ -2,7 +2,7 @@ import { ArrowLeft, Cpu, Droplets, Lightbulb, RadioTower, ShieldCheck, Users } f
 import { Link } from "react-router-dom";
 import { Footer } from "@/app/components/Footer";
 import { Navbar } from "@/app/components/Navbar";
-import croakHero from "@/assets/croak_hero.png";
+import croakModelSide from "@/assets/croak_model_side.png";
 
 const teamMembers = [
   {
@@ -78,9 +78,9 @@ export function AboutPage() {
             <div className="croak-reveal croak-reveal-delay relative min-h-[460px]">
               <div className="absolute inset-10 rounded-full border border-[#0f8f5b]/18 bg-white/25 shadow-[inset_0_0_90px_rgba(105,221,153,0.16)]" aria-hidden="true" />
               <img
-                src={croakHero}
-                alt="Prototipo físico de Croak"
-                className="croak-device-float relative z-10 mx-auto w-full max-w-[560px] object-contain drop-shadow-[0_44px_70px_rgba(19,88,59,0.25)]"
+                src={croakModelSide}
+                alt="Vista lateral del modelo 3D de Croak"
+                className="croak-device-float relative z-10 mx-auto w-full max-w-[620px] rounded-[1.7rem] border border-white/70 object-contain shadow-[0_44px_80px_rgba(19,88,59,0.2)]"
               />
             </div>
           </div>
