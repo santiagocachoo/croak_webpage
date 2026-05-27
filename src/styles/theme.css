@@ -2,54 +2,59 @@
 
 :root {
   --font-size: 16px;
-  --background: #0a0f0c;
-  --foreground: #e8f0ec;
-  --card: #111a14;
-  --card-foreground: #e8f0ec;
-  --popover: #111a14;
-  --popover-foreground: #e8f0ec;
-  --primary: #22c97e;
-  --primary-foreground: #0a0f0c;
-  --secondary: #1a87b0;
-  --secondary-foreground: #e8f0ec;
-  --muted: #162019;
-  --muted-foreground: #6b8c7a;
-  --accent: #162019;
-  --accent-foreground: #e8f0ec;
-  --destructive: #d4183d;
+  --background: #ffffff;
+  --foreground: #0b1f15;
+  --card: #ffffff;
+  --card-foreground: #0b1f15;
+  --popover: #ffffff;
+  --popover-foreground: #0b1f15;
+  --primary: #0b7a4f;
+  --primary-foreground: #ffffff;
+  --secondary: #edf8f3;
+  --secondary-foreground: #0b1f15;
+  --muted: #edf8f3;
+  --muted-foreground: #436856;
+  --accent: #e5f5ee;
+  --accent-foreground: #0b1f15;
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: rgba(34, 201, 126, 0.1);
+  --border: #d8eee5;
   --input: transparent;
-  --input-background: #111a14;
-  --switch-background: #2d4a38;
+  --input-background: #edf8f3;
+  --switch-background: #c4e8d4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #22c97e;
+  --ring: #0b7a4f;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
-  --sidebar: #111a14;
-  --sidebar-foreground: #e8f0ec;
-  --sidebar-primary: #22c97e;
-  --sidebar-primary-foreground: #0a0f0c;
-  --sidebar-accent: #162019;
-  --sidebar-accent-foreground: #e8f0ec;
-  --sidebar-border: rgba(34, 201, 126, 0.1);
-  --sidebar-ring: #22c97e;
+  --radius: 1rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0b1f15;
+  --sidebar-primary: #0b7a4f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #edf8f3;
+  --sidebar-accent-foreground: #0b1f15;
+  --sidebar-border: #d8eee5;
+  --sidebar-ring: #0b7a4f;
 
   /* Croak Design Tokens */
-  --croak-ink: #0a0f0c;
-  --croak-surface: #111a14;
-  --croak-surface-2: #162019;
-  --croak-green: #22c97e;
-  --croak-green-dim: #1b6d49;
-  --croak-teal: #1a87b0;
-  --croak-cream: #f5f0e8;
-  --croak-text: #e8f0ec;
-  --croak-muted: #6b8c7a;
+  --croak-ink: #0b1f15;
+  --croak-surface: #ffffff;
+  --croak-surface-alt: #edf8f3;
+  --croak-surface-card: #f6fbf8;
+  --croak-green: #16a36c;
+  --croak-green-action: #0b7a4f;
+  --croak-green-hover: #096941;
+  --croak-green-light: #e5f5ee;
+  --croak-green-border: #c4e8d4;
+  --croak-deep: #0b7a4f;
+  --croak-text: #0b1f15;
+  --croak-secondary: #436856;
+  --croak-muted: #7ba38e;
+  --croak-border: #d8eee5;
 }
 
 @theme inline {
@@ -119,13 +124,13 @@
   h4,
   h5,
   h6 {
-    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-    font-weight: 400;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
   }
 
   h1 {
     font-size: var(--text-2xl);
-    line-height: 1.1;
+    line-height: 1.08;
   }
 
   h2 {
@@ -168,21 +173,6 @@
     font-variant-numeric: tabular-nums;
   }
 
-  .croak-noise {
-    isolation: isolate;
-  }
-
-  .croak-noise::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: -1;
-  }
-
   .croak-scroll-reveal {
     opacity: 1;
   }
@@ -194,7 +184,7 @@
     background: linear-gradient(
       105deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.04) 45%,
+      rgba(255, 255, 255, 0.6) 45%,
       transparent 62%
     );
     transform: translateX(-100%);

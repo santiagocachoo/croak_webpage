@@ -26,18 +26,14 @@ const appStatusItems = [
 
 export function AppPreview() {
   return (
-    <section className="relative bg-[#f5f0e8] px-5 py-24 text-[#0a0f0c] sm:px-8 lg:px-12" id="how-it-works">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0a0f0c] to-transparent"
-        aria-hidden="true"
-      />
+    <section className="relative bg-[#edf8f3] px-5 py-24 text-[#0b1f15] sm:px-8 lg:px-12" id="how-it-works">
       <div className="relative mx-auto grid max-w-[1440px] gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="croak-scroll-reveal relative order-2 lg:order-1">
           <div className="relative mx-auto max-w-[380px]">
             <img
               src={previewApp}
               alt="Vista previa real de la app Croak"
-              className="relative z-10 mx-auto h-auto w-full max-w-[300px] rounded-[2rem] shadow-[0_40px_80px_rgba(0,0,0,0.18)]"
+              className="relative z-10 mx-auto h-auto w-full max-w-[300px] rounded-[2rem] shadow-[0_24px_60px_rgba(11,122,79,0.15),0_8px_24px_rgba(0,0,0,0.08)]"
             />
             <div className="relative z-20 mx-auto mt-4 grid max-w-[300px] gap-3 sm:grid-cols-2">
               {appStatusItems.map((item) => {
@@ -45,11 +41,11 @@ export function AppPreview() {
                 return (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-[#0a0f0c]/8 bg-white p-4 shadow-[0_4px_20px_rgba(0,0,0,0.07)] transition-transform hover:-translate-y-1"
+                    className="cursor-default rounded-2xl border border-[#d8eee5] bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-0.5"
                   >
-                    <IconComponent className="h-4 w-4 text-[#22c97e]" aria-hidden="true" />
-                    <p className="mt-3 text-sm font-semibold text-[#0a0f0c]">{item.title}</p>
-                    <p className="mt-0.5 text-xs text-[#4a5e52]">{item.text}</p>
+                    <IconComponent className="h-4 w-4 text-[#16a36c]" aria-hidden="true" />
+                    <p className="mt-3 text-sm font-semibold text-[#0b1f15]">{item.title}</p>
+                    <p className="mt-0.5 text-xs text-[#7ba38e]">{item.text}</p>
                   </div>
                 );
               })}
@@ -58,28 +54,28 @@ export function AppPreview() {
         </div>
 
         <div className="croak-scroll-reveal order-1 lg:order-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22c97e]">App Croak</p>
-          <h2 className="mt-5 max-w-3xl text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0b7a4f]">App Croak</p>
+          <h2 className="mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
             Una interfaz para decidir, no para interpretar sensores.
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#4a5e52]">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#436856]">
             La app resume el estado del agua, muestra señales clave y concentra las acciones rápidas. Puedes revisar, comparar y reaccionar sin abrir una hoja de datos.
           </p>
 
-          <div className="mt-10 divide-y divide-[#0a0f0c]/8 overflow-hidden rounded-2xl border border-[#0a0f0c]/8 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
+          <div className="mt-10 divide-y divide-[#d8eee5] overflow-hidden rounded-2xl border border-[#d8eee5] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
             {appHighlights.map((highlight) => {
               const IconComponent = highlight.icon;
               return (
                 <div
                   key={highlight.title}
-                  className="group grid gap-5 p-5 transition-colors hover:bg-[#f5f0e8] sm:grid-cols-[3rem_1fr]"
+                  className="group grid gap-5 p-5 transition-colors duration-200 hover:bg-[#edf8f3] sm:grid-cols-[3rem_1fr]"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0a0f0c] text-[#22c97e]">
-                    <IconComponent className="h-5 w-5" aria-hidden="true" />
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0b7a4f]">
+                    <IconComponent className="h-5 w-5 text-white" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-[#0a0f0c]">{highlight.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-[#4a5e52]">{highlight.text}</p>
+                    <h3 className="text-base font-bold text-[#0b1f15]">{highlight.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-[#436856]">{highlight.text}</p>
                   </div>
                 </div>
               );
@@ -91,7 +87,7 @@ export function AppPreview() {
               href="https://fernandox89.github.io/app_croak/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a0f0c] px-6 py-4 font-bold text-[#e8f0ec] shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-0.5 hover:bg-[#111a14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#0b7a4f] px-6 py-4 font-bold text-white shadow-[0_4px_16px_rgba(11,122,79,0.25)] transition-all hover:-translate-y-0.5 hover:bg-[#096941] hover:shadow-[0_8px_24px_rgba(11,122,79,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
               aria-label="Abrir simulación completa de la app Croak"
             >
               Ver simulación completa
@@ -99,7 +95,7 @@ export function AppPreview() {
             </a>
             <a
               href="mailto:croakfernando@gmail.com?subject=Demo%20de%20Croak"
-              className="inline-flex items-center justify-center rounded-xl border border-[#0a0f0c]/15 bg-white px-6 py-4 font-bold text-[#0a0f0c] transition-all hover:-translate-y-0.5 hover:border-[#22c97e]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
+              className="inline-flex cursor-pointer items-center justify-center rounded-2xl border border-[#d8eee5] bg-white px-6 py-4 font-bold text-[#0b1f15] transition-all hover:-translate-y-0.5 hover:border-[#c4e8d4] hover:bg-[#edf8f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
               aria-label="Solicitar una demo de Croak por correo"
             >
               Solicitar demo

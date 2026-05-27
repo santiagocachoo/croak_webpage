@@ -4,7 +4,7 @@ import { AboutPage } from "../pages/AboutPage";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0a0f0c] text-[#e8f0ec] selection:bg-[#22c97e]/25 selection:text-[#22c97e]">
+    <div className="min-h-screen bg-white text-[#0b1f15] selection:bg-[#c4e8d4] selection:text-[#0b7a4f]">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/nosotros" element={<AboutPage />} />

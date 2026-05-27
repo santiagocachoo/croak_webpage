@@ -72,8 +72,8 @@ export function Navbar({ isLanding = false }: NavbarProps) {
     <nav
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "border-b border-[#22c97e]/10 bg-[#0a0f0c]/95 shadow-[0_2px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl"
-          : "bg-[#0a0f0c]/60 backdrop-blur-md"
+          ? "border-b border-[#d8eee5] bg-white/96 shadow-[0_1px_12px_rgba(0,0,0,0.06)] backdrop-blur-md"
+          : "bg-white/80 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
@@ -81,27 +81,27 @@ export function Navbar({ isLanding = false }: NavbarProps) {
           <button
             type="button"
             onClick={handleLogoClick}
-            className="group flex items-center gap-3 rounded-lg text-left transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
+            className="group flex cursor-pointer items-center gap-3 rounded-lg text-left transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
             aria-label="Ir al inicio de Croak"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#22c97e]/15 bg-[#111a14] transition-all group-hover:border-[#22c97e]/30">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#d8eee5] bg-[#edf8f3] transition-all group-hover:border-[#c4e8d4]">
               <img src={croakLogo} alt="Logo de Croak" className="h-7 w-7 object-contain" />
             </span>
-            <span className="text-xl font-bold tracking-tight text-[#e8f0ec]">Croak</span>
+            <span className="text-xl font-bold tracking-tight text-[#0b1f15]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Croak</span>
           </button>
 
           <div className="hidden items-center gap-7 md:flex">
             <button
               type="button"
               onClick={handleAboutNavigation}
-              className="text-sm font-medium text-[#6b8c7a] transition-colors hover:text-[#e8f0ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
+              className="cursor-pointer text-sm font-medium text-[#436856] transition-colors hover:text-[#0b1f15] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
             >
               Nosotros
             </button>
             <button
               type="button"
               onClick={() => handleSectionNavigation("final-cta")}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#22c97e] px-5 py-2.5 text-sm font-bold text-[#0a0f0c] shadow-[0_0_30px_rgba(34,201,126,0.2)] transition-all hover:bg-[#1fb36e] hover:shadow-[0_0_44px_rgba(34,201,126,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
+              className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl bg-[#0b7a4f] px-5 py-2.5 text-sm font-bold text-white shadow-[0_2px_12px_rgba(11,122,79,0.25)] transition-all hover:bg-[#096941] hover:shadow-[0_4px_20px_rgba(11,122,79,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
             >
               Quiero Croak
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -111,7 +111,7 @@ export function Navbar({ isLanding = false }: NavbarProps) {
           <button
             type="button"
             onClick={handleMenuToggle}
-            className="rounded-xl border border-[#22c97e]/15 bg-[#111a14] p-2.5 text-[#e8f0ec] transition-all hover:border-[#22c97e]/30 md:hidden"
+            className="cursor-pointer rounded-xl border border-[#d8eee5] bg-[#edf8f3] p-2.5 text-[#0b1f15] transition-all hover:border-[#c4e8d4] md:hidden"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -128,20 +128,20 @@ export function Navbar({ isLanding = false }: NavbarProps) {
       {isMenuOpen && (
         <div
           id="mobile-navigation"
-          className="border-t border-[#22c97e]/10 bg-[#0a0f0c]/98 px-5 py-4 backdrop-blur-2xl md:hidden"
+          className="border-t border-[#d8eee5] bg-white px-5 py-4 md:hidden"
         >
           <div className="flex flex-col gap-2">
             <button
               type="button"
               onClick={handleAboutNavigation}
-              className="rounded-xl px-3 py-3 text-left text-base font-medium text-[#6b8c7a] transition-colors hover:bg-[#111a14] hover:text-[#e8f0ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c97e]"
+              className="cursor-pointer rounded-xl px-3 py-3 text-left text-base font-medium text-[#436856] transition-colors hover:bg-[#edf8f3] hover:text-[#0b1f15] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b7a4f]"
             >
               Nosotros
             </button>
             <button
               type="button"
               onClick={() => handleSectionNavigation("final-cta")}
-              className="mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#22c97e] px-5 py-3 font-bold text-[#0a0f0c]"
+              className="mt-1 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#0b7a4f] px-5 py-3 font-bold text-white"
             >
               Quiero Croak
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -151,7 +151,7 @@ export function Navbar({ isLanding = false }: NavbarProps) {
       )}
 
       <div
-        className="absolute bottom-0 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-[#22c97e] via-[#1a87b0] to-[#22c97e]/40 transition-transform duration-150"
+        className="absolute bottom-0 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-[#16a36c] to-[#0b7a4f] transition-transform duration-150"
         style={{ transform: `scaleX(${scrollProgress})` }}
         aria-hidden="true"
       />
