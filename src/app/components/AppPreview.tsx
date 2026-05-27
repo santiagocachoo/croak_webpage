@@ -1,5 +1,6 @@
 import { ArrowUpRight, BarChart3, BellRing, CheckCircle2, LockKeyhole, Wifi } from "lucide-react";
 import previewApp from "../../assets/preview_app.png";
+import { useStagger } from "../../hooks/useStagger";
 
 const appHighlights = [
   {
@@ -25,6 +26,8 @@ const appStatusItems = [
 ];
 
 export function AppPreview() {
+  const staggerRef = useStagger(90);
+
   return (
     <section className="relative bg-[#edf8f3] px-5 py-24 text-[#0b1f15] sm:px-8 lg:px-12" id="how-it-works">
       <div className="relative mx-auto grid max-w-[1440px] gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -62,13 +65,13 @@ export function AppPreview() {
             La app resume el estado del agua, muestra señales clave y concentra las acciones rápidas. Puedes revisar, comparar y reaccionar sin abrir una hoja de datos.
           </p>
 
-          <div className="mt-10 divide-y divide-[#d8eee5] overflow-hidden rounded-2xl border border-[#d8eee5] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+          <div ref={staggerRef} className="mt-10 divide-y divide-[#d8eee5] overflow-hidden rounded-2xl border border-[#d8eee5] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
             {appHighlights.map((highlight) => {
               const IconComponent = highlight.icon;
               return (
                 <div
                   key={highlight.title}
-                  className="group grid gap-5 p-5 transition-colors duration-200 hover:bg-[#edf8f3] sm:grid-cols-[3rem_1fr]"
+                  className="croak-stagger-item group grid gap-5 p-5 transition-[background-color] duration-200 hover:bg-[#edf8f3] sm:grid-cols-[3rem_1fr]"
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0b7a4f]">
                     <IconComponent className="h-5 w-5 text-white" aria-hidden="true" />
@@ -87,7 +90,7 @@ export function AppPreview() {
               href="https://fernandox89.github.io/app_croak/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#0b7a4f] px-6 py-4 font-bold text-white shadow-[0_4px_16px_rgba(11,122,79,0.25)] transition-all hover:-translate-y-0.5 hover:bg-[#096941] hover:shadow-[0_8px_24px_rgba(11,122,79,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#0b7a4f] px-6 py-4 font-bold text-white shadow-[0_4px_16px_rgba(11,122,79,0.25)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#096941] hover:shadow-[0_8px_24px_rgba(11,122,79,0.35)] active:scale-[0.97] active:shadow-[0_2px_8px_rgba(11,122,79,0.20)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
               aria-label="Abrir simulación completa de la app Croak"
             >
               Ver simulación completa

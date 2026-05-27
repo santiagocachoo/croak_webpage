@@ -40,6 +40,10 @@
   --sidebar-border: #d8eee5;
   --sidebar-ring: #0b7a4f;
 
+  /* Easing */
+  --ease-croak: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-croak-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
   /* Croak Design Tokens */
   --croak-ink: #0b1f15;
   --croak-surface: #ffffff;
@@ -173,6 +177,14 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* Hero stagger — each element animates in on load */
+  .croak-hero-1 { animation: croak-hero-in 650ms cubic-bezier(0.23, 1, 0.32, 1) 60ms both; }
+  .croak-hero-2 { animation: croak-hero-in 650ms cubic-bezier(0.23, 1, 0.32, 1) 160ms both; }
+  .croak-hero-3 { animation: croak-hero-in 650ms cubic-bezier(0.23, 1, 0.32, 1) 250ms both; }
+  .croak-hero-4 { animation: croak-hero-in 650ms cubic-bezier(0.23, 1, 0.32, 1) 340ms both; }
+  .croak-hero-5 { animation: croak-hero-in 650ms cubic-bezier(0.23, 1, 0.32, 1) 430ms both; }
+  .croak-hero-img { animation: croak-hero-in 750ms cubic-bezier(0.23, 1, 0.32, 1) 220ms both; }
+
   .croak-scroll-reveal {
     opacity: 1;
   }
@@ -212,15 +224,36 @@
 
 @supports (animation-timeline: view()) {
   .croak-scroll-reveal {
-    animation: croak-view-rise both ease-out;
+    animation: croak-view-rise both;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
     animation-timeline: view();
-    animation-range: entry 8% cover 34%;
+    animation-range: entry 5% cover 28%;
+  }
+
+  .croak-scroll-reveal-late {
+    animation: croak-view-rise both;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-timeline: view();
+    animation-range: entry 12% cover 36%;
   }
 
   .croak-scroll-float {
-    animation: croak-view-float both ease-out;
+    animation: croak-view-float both;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
     animation-timeline: view();
     animation-range: entry 0% cover 58%;
+  }
+}
+
+@keyframes croak-hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -271,12 +304,12 @@
 
 @keyframes croak-view-rise {
   from {
-    transform: translateY(36px) scale(0.98);
+    transform: translateY(30px);
     opacity: 0;
   }
 
   to {
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
     opacity: 1;
   }
 }

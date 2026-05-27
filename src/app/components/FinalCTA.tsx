@@ -32,7 +32,7 @@ export function FinalCTA() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="mailto:croakfernando@gmail.com?subject=Quiero%20comprar%20Croak"
-            className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-bold text-[#0b7a4f] shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:bg-[#edf8f3] hover:shadow-[0_8px_32px_rgba(0,0,0,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-bold text-[#0b7a4f] shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-[transform,box-shadow,background-color] duration-200 hover:bg-[#edf8f3] hover:shadow-[0_8px_32px_rgba(0,0,0,0.2)] active:scale-[0.97] active:shadow-[0_2px_8px_rgba(0,0,0,0.10)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             aria-label="Enviar correo para comprar Croak"
           >
             Comprar ahora
@@ -40,7 +40,7 @@ export function FinalCTA() {
           </a>
           <a
             href="mailto:croakfernando@gmail.com?subject=Demo%20de%20Croak"
-            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white/25 px-6 py-4 font-bold text-white transition-all hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white/25 px-6 py-4 font-bold text-white transition-[transform,border-color,background-color] duration-200 hover:border-white/50 hover:bg-white/10 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             aria-label="Enviar correo para agendar una demo de Croak"
           >
             <Mail className="h-5 w-5" aria-hidden="true" />

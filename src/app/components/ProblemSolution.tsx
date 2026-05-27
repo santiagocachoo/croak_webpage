@@ -1,4 +1,5 @@
 import { Activity, Bell, Eye, Gauge, ShieldAlert, Smartphone } from "lucide-react";
+import { useStagger } from "../../hooks/useStagger";
 
 const signals = [
   {
@@ -37,6 +38,8 @@ const workflow = [
 ];
 
 export function ProblemSolution() {
+  const staggerRef = useStagger(110);
+
   return (
     <section className="relative bg-white px-5 py-24 text-[#0b1f15] sm:px-8 lg:px-12" id="features">
       <div className="mx-auto max-w-[1440px]">
@@ -53,9 +56,9 @@ export function ProblemSolution() {
         </div>
 
         {/* Bento grid */}
-        <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div ref={staggerRef} className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {/* Card 0 — wide, with data badges */}
-          <div className="croak-scroll-reveal group flex cursor-default flex-col rounded-[1.25rem] border border-[#d8eee5] bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-200 hover:-translate-y-1 hover:border-[#c4e8d4] hover:shadow-[0_8px_28px_rgba(11,122,79,0.08)] md:col-span-2 lg:col-span-2">
+          <div className="croak-stagger-item group flex cursor-default flex-col rounded-[1.25rem] border border-[#d8eee5] bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-[#c4e8d4] hover:shadow-[0_8px_28px_rgba(11,122,79,0.08)] md:col-span-2 lg:col-span-2">
             <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-[#e5f5ee]">
               <Eye className="h-5 w-5 text-[#0b7a4f]" aria-hidden="true" />
             </div>
@@ -76,7 +79,7 @@ export function ProblemSolution() {
           </div>
 
           {/* Card 1 — tall */}
-          <div className="croak-scroll-reveal group flex cursor-default flex-col rounded-[1.25rem] border border-[#d8eee5] bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-200 hover:-translate-y-1 hover:border-[#c4e8d4] hover:shadow-[0_8px_28px_rgba(11,122,79,0.08)] md:col-span-2 lg:col-span-1 lg:row-span-2">
+          <div className="croak-stagger-item group flex cursor-default flex-col rounded-[1.25rem] border border-[#d8eee5] bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-[#c4e8d4] hover:shadow-[0_8px_28px_rgba(11,122,79,0.08)] md:col-span-2 lg:col-span-1 lg:row-span-2">
             <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-[#e5f5ee]">
               <ShieldAlert className="h-5 w-5 text-[#0b7a4f]" aria-hidden="true" />
             </div>
@@ -100,7 +103,7 @@ export function ProblemSolution() {
           </div>
 
           {/* Card 2 — wide, with mock notification */}
-          <div className="croak-scroll-reveal group flex cursor-default flex-col rounded-[1.25rem] border border-[#d8eee5] bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-200 hover:-translate-y-1 hover:border-[#c4e8d4] hover:shadow-[0_8px_28px_rgba(11,122,79,0.08)] md:col-span-2 lg:col-span-2">
+          <div className="croak-stagger-item group flex cursor-default flex-col rounded-[1.25rem] border border-[#d8eee5] bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-[#c4e8d4] hover:shadow-[0_8px_28px_rgba(11,122,79,0.08)] md:col-span-2 lg:col-span-2">
             <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-[#e5f5ee]">
               <Bell className="h-5 w-5 text-[#0b7a4f]" aria-hidden="true" />
             </div>

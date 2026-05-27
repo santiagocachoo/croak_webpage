@@ -1,5 +1,5 @@
 import { ArrowRight, Play } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import croakHero from "../../assets/croak_hero.png";
 
 function useCountUp(target: number, duration = 1500, decimals = 0) {
@@ -37,47 +37,80 @@ function MetricCard({ metric, index, total }: { metric: (typeof heroMetrics)[0];
 }
 
 export function Hero() {
+  const glowRef = useRef<HTMLDivElement>(null);
+  const mouse = useRef({ x: 60, y: 40 });
+  const target = useRef({ x: 60, y: 40 });
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let rafId: number;
+    const LERP = 0.055;
+
+    const tick = () => {
+      mouse.current.x += (target.current.x - mouse.current.x) * LERP;
+      mouse.current.y += (target.current.y - mouse.current.y) * LERP;
+      if (glowRef.current) {
+        glowRef.current.style.background = `radial-gradient(550px circle at ${mouse.current.x}% ${mouse.current.y}%, rgba(22,163,108,0.09), transparent 50%)`;
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    target.current.x = ((e.clientX - rect.left) / rect.width) * 100;
+    target.current.y = ((e.clientY - rect.top) / rect.height) * 100;
+  };
+
   return (
     <section
       id="product"
       className="relative isolate min-h-screen overflow-hidden bg-white px-5 pb-20 pt-32 text-[#0b1f15] sm:px-8 lg:px-12"
+      onMouseMove={handleMouseMove}
     >
+      {/* Cursor-tracking glow */}
+      <div ref={glowRef} className="pointer-events-none absolute inset-0" aria-hidden="true" />
+      {/* Static ambient glow */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_60%_40%,rgba(22,163,108,0.07)_0%,transparent_65%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_65%_35%,rgba(22,163,108,0.06),transparent_65%)]"
         aria-hidden="true"
       />
 
-      <div className="croak-reveal mx-auto grid min-h-[calc(100svh-8rem)] w-full max-w-[1440px] items-center gap-12 lg:grid-cols-[1fr_1fr]">
+      <div className="mx-auto grid min-h-[calc(100svh-8rem)] w-full max-w-[1440px] items-center gap-12 lg:grid-cols-[1fr_1fr]">
         <div className="flex flex-col justify-center">
-          <div className="mb-8 inline-flex w-fit items-center gap-2.5 rounded-full border border-[#c4e8d4] bg-[#e5f5ee] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#0b7a4f]">
+          <div className="croak-hero-1 mb-8 inline-flex w-fit items-center gap-2.5 rounded-full border border-[#c4e8d4] bg-[#e5f5ee] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#0b7a4f]">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#16a36c]" aria-hidden="true" />
             Monitoreo inteligente de agua
           </div>
 
-          <h1 className="max-w-xl text-[3.6rem] font-extrabold leading-[1.0] tracking-tight text-[#0b1f15] sm:text-7xl lg:text-[5rem]">
+          <h1 className="croak-hero-2 max-w-xl text-[3.6rem] font-extrabold leading-[1.0] tracking-tight text-[#0b1f15] sm:text-7xl lg:text-[5rem]">
             El estado de tu agua,{" "}
             <em className="italic text-[#16a36c]">siempre</em>{" "}
             visible.
           </h1>
 
-          <p className="mt-8 max-w-md text-lg leading-relaxed text-[#436856]">
+          <p className="croak-hero-3 mt-8 max-w-md text-lg leading-relaxed text-[#436856]">
             Croak convierte pH, turbidez y TDS en una respuesta directa: todo bien, o hay algo que atender.
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <div className="croak-hero-4 mt-10 flex flex-col gap-3 sm:flex-row">
             <a
               href="mailto:croakfernando@gmail.com?subject=Quiero%20Croak"
-              className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#0b7a4f] px-6 py-4 font-bold text-white shadow-[0_4px_20px_rgba(11,122,79,0.30)] transition-all hover:bg-[#096941] hover:shadow-[0_8px_32px_rgba(11,122,79,0.40)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
+              className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#0b7a4f] px-6 py-4 font-bold text-white shadow-[0_4px_20px_rgba(11,122,79,0.30)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#096941] hover:shadow-[0_8px_32px_rgba(11,122,79,0.40)] active:scale-[0.97] active:shadow-[0_2px_8px_rgba(11,122,79,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
               aria-label="Solicitar información para comprar Croak por correo"
             >
               Comprar ahora
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
             </a>
             <a
               href="https://youtu.be/5xsPYnQADno"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-[#d8eee5] bg-white px-6 py-4 font-bold text-[#0b1f15] transition-all hover:border-[#c4e8d4] hover:bg-[#edf8f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-[#d8eee5] bg-white px-6 py-4 font-bold text-[#0b1f15] transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-[#c4e8d4] hover:bg-[#edf8f3] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
               aria-label="Ver video de cómo funciona Croak en YouTube"
             >
               <Play className="h-4 w-4 text-[#16a36c]" aria-hidden="true" />
@@ -85,16 +118,16 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-12 grid grid-cols-3 overflow-hidden rounded-2xl border border-[#d8eee5] bg-[#edf8f3] shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
+          <div className="croak-hero-5 mt-12 grid grid-cols-3 overflow-hidden rounded-2xl border border-[#d8eee5] bg-[#edf8f3] shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
             {heroMetrics.map((metric, i) => (
               <MetricCard key={metric.label} metric={metric} index={i} total={heroMetrics.length} />
             ))}
           </div>
         </div>
 
-        <div className="croak-reveal-delay relative flex items-center justify-center">
+        <div className="croak-hero-img relative flex items-center justify-center">
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_75%_at_50%_50%,rgba(22,163,108,0.10)_0%,transparent_70%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_75%_at_50%_50%,rgba(22,163,108,0.10),transparent_70%)]"
             aria-hidden="true"
           />
           <img

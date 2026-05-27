@@ -1,5 +1,6 @@
 import { BellRing, Droplets, Gauge, RadioTower, ShieldCheck, Smartphone } from "lucide-react";
 import croakModelExploded from "../../assets/croak_model_exploded.png";
+import { useStagger } from "../../hooks/useStagger";
 
 const flowSteps = [
   {
@@ -35,6 +36,8 @@ const stageMetrics = [
 ];
 
 export function ExperienceFlow() {
+  const staggerRef = useStagger(100);
+
   return (
     <section id="experience" className="relative bg-[#edf8f3] px-5 py-24 text-[#0b1f15] sm:px-8 lg:px-12">
       <div className="relative mx-auto grid max-w-[1440px] gap-16 lg:grid-cols-[0.86fr_1.14fr]">
@@ -84,7 +87,7 @@ export function ExperienceFlow() {
             Croak conecta el dispositivo, las lecturas y la app para que sepas qué está pasando con tu agua en cada momento. Si algo cambia, recibes contexto claro para actuar antes de que se vuelva un problema.
           </p>
 
-          <div className="mt-12 space-y-4">
+          <div ref={staggerRef} className="mt-12 space-y-4">
             {flowSteps.map((step, index) => {
               const IconComponent = step.icon;
               const formattedIndex = String(index + 1).padStart(2, "0");
@@ -92,7 +95,7 @@ export function ExperienceFlow() {
               return (
                 <article
                   key={step.title}
-                  className="croak-scroll-reveal group cursor-default rounded-2xl border border-[#d8eee5] bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#c4e8d4] hover:shadow-[0_8px_24px_rgba(11,122,79,0.08)]"
+                  className="croak-stagger-item group cursor-default rounded-2xl border border-[#d8eee5] bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[#c4e8d4] hover:shadow-[0_8px_24px_rgba(11,122,79,0.08)]"
                 >
                   <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#0b7a4f] text-white">

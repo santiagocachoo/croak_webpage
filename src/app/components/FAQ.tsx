@@ -63,7 +63,7 @@ export function FAQ() {
                 <button
                   type="button"
                   onClick={() => handleToggle(index)}
-                  className={`flex w-full cursor-pointer items-center justify-between gap-6 px-5 py-5 text-left transition-colors duration-200 hover:bg-[#edf8f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#0b7a4f] sm:px-6 ${isOpen ? "bg-[#edf8f3]" : ""}`}
+                  className={`flex w-full cursor-pointer items-center justify-between gap-6 px-5 py-5 text-left transition-[background-color,transform] duration-200 hover:bg-[#edf8f3] active:bg-[#e5f5ee] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#0b7a4f] sm:px-6 ${isOpen ? "bg-[#edf8f3]" : ""}`}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                 >
