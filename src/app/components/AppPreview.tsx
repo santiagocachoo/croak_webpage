@@ -20,46 +20,32 @@ const appHighlights = [
 ];
 
 const appStatusItems = [
-  {
-    icon: Wifi,
-    title: "Conectado",
-    text: "Lectura en vivo",
-  },
-  {
-    icon: LockKeyhole,
-    title: "Válvula",
-    text: "Control rápido",
-  },
+  { icon: Wifi, title: "Conectado", text: "Lectura en vivo" },
+  { icon: LockKeyhole, title: "Válvula", text: "Control rápido" },
 ];
 
 export function AppPreview() {
   return (
-    <section className="relative overflow-hidden bg-[#ecfff3] px-5 py-24 text-[#07110d] sm:px-8 lg:px-12" id="how-it-works">
-      <div className="croak-wave-band absolute inset-x-0 top-0 h-36 opacity-80" aria-hidden="true" />
-
+    <section className="relative bg-[#f5f0e8] px-5 py-24 text-[#0a0f0c] sm:px-8 lg:px-12" id="how-it-works">
       <div className="relative mx-auto grid max-w-[1440px] gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="croak-scroll-reveal relative order-2 lg:order-1">
-          <div className="absolute inset-y-12 left-1/2 w-px -translate-x-1/2 bg-[#0f8f5b]/20" aria-hidden="true" />
-          <div className="relative mx-auto max-w-[430px]">
-            <div className="absolute -inset-8 rounded-[3rem] bg-white/45 shadow-[0_34px_120px_rgba(19,88,59,0.14)]" aria-hidden="true" />
+          <div className="relative mx-auto max-w-[380px]">
             <img
               src={previewApp}
               alt="Vista previa real de la app Croak"
-              className="relative z-10 mx-auto h-auto w-full max-w-[360px] rounded-[2rem] shadow-[0_44px_100px_rgba(19,88,59,0.18)]"
+              className="relative z-10 mx-auto h-auto w-full max-w-[300px] rounded-[2rem] shadow-[0_40px_80px_rgba(0,0,0,0.18)]"
             />
-
-            <div className="relative z-20 mx-auto mt-5 grid max-w-[360px] gap-3 sm:grid-cols-2">
+            <div className="relative z-20 mx-auto mt-4 grid max-w-[300px] gap-3 sm:grid-cols-2">
               {appStatusItems.map((item) => {
                 const IconComponent = item.icon;
-
                 return (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-[#0c4f36]/12 bg-white/86 p-4 text-[#07110d] shadow-[0_18px_50px_rgba(19,88,59,0.12)] backdrop-blur-xl transition-transform hover:-translate-y-1"
+                    className="rounded-2xl border border-[#0a0f0c]/8 bg-white p-4 shadow-[0_4px_20px_rgba(0,0,0,0.07)] transition-transform hover:-translate-y-1"
                   >
-                    <IconComponent className="h-5 w-5 text-[#0f8f5b]" aria-hidden="true" />
-                    <p className="mt-3 text-sm font-black">{item.title}</p>
-                    <p className="mt-1 text-xs text-[#254235]/58">{item.text}</p>
+                    <IconComponent className="h-4 w-4 text-[#22c97e]" aria-hidden="true" />
+                    <p className="mt-3 text-sm font-semibold text-[#0a0f0c]">{item.title}</p>
+                    <p className="mt-0.5 text-xs text-[#4a5e52]">{item.text}</p>
                   </div>
                 );
               })}
@@ -68,47 +54,48 @@ export function AppPreview() {
         </div>
 
         <div className="croak-scroll-reveal order-1 lg:order-2">
-          <p className="text-sm font-black uppercase tracking-[0.24em] text-[#0f8f5b]">App Croak</p>
-          <h2 className="mt-5 max-w-3xl text-4xl font-black leading-none tracking-tight sm:text-5xl lg:text-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22c97e]">App Croak</p>
+          <h2 className="mt-5 max-w-3xl text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
             Una interfaz para decidir, no para interpretar sensores.
           </h2>
-
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-[#254235]/76">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#4a5e52]">
             La app resume el estado del agua, muestra señales clave y concentra las acciones rápidas. Puedes revisar, comparar y reaccionar sin abrir una hoja de datos.
           </p>
 
-          <div className="mt-10 divide-y divide-[#0c4f36]/10 overflow-hidden rounded-3xl border border-[#0c4f36]/12 bg-white/72 shadow-[0_26px_80px_rgba(19,88,59,0.12)] backdrop-blur-xl">
+          <div className="mt-10 divide-y divide-[#0a0f0c]/8 overflow-hidden rounded-2xl border border-[#0a0f0c]/8 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
             {appHighlights.map((highlight) => {
               const IconComponent = highlight.icon;
-
               return (
-                <div key={highlight.title} className="group grid gap-5 p-6 transition-colors hover:bg-[#f7fffa] sm:grid-cols-[3rem_1fr]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#07110d] text-[#9dffd0] transition-transform group-hover:rotate-3 group-hover:scale-105">
+                <div
+                  key={highlight.title}
+                  className="group grid gap-5 p-5 transition-colors hover:bg-[#f5f0e8] sm:grid-cols-[3rem_1fr]"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0a0f0c] text-[#22c97e]">
                     <IconComponent className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black">{highlight.title}</h3>
-                    <p className="mt-2 leading-7 text-[#254235]/68">{highlight.text}</p>
+                    <h3 className="text-base font-semibold text-[#0a0f0c]">{highlight.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-[#4a5e52]">{highlight.text}</p>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="https://fernandox89.github.io/app_croak/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#07110d] px-6 py-4 font-black text-white shadow-[0_22px_48px_rgba(7,17,13,0.18)] transition-transform hover:-translate-y-1 hover:bg-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a0f0c] px-6 py-4 font-bold text-[#e8f0ec] shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-0.5 hover:bg-[#111a14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
               aria-label="Abrir simulación completa de la app Croak"
             >
               Ver simulación completa
-              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
               href="mailto:croakfernando@gmail.com?subject=Demo%20de%20Croak"
-              className="inline-flex items-center justify-center rounded-xl border border-[#0c4f36]/14 bg-white/68 px-6 py-4 font-black text-[#07110d] shadow-[0_18px_44px_rgba(19,88,59,0.1)] backdrop-blur-xl transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+              className="inline-flex items-center justify-center rounded-xl border border-[#0a0f0c]/15 bg-white px-6 py-4 font-bold text-[#0a0f0c] transition-all hover:-translate-y-0.5 hover:border-[#22c97e]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
               aria-label="Solicitar una demo de Croak por correo"
             >
               Solicitar demo

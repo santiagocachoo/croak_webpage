@@ -29,74 +29,43 @@ const flowSteps = [
 ];
 
 const stageMetrics = [
-  {
-    icon: Droplets,
-    value: "7.0",
-    label: "pH",
-  },
-  {
-    icon: Gauge,
-    value: "2.9",
-    label: "NTU",
-  },
-  {
-    icon: Smartphone,
-    value: "En vivo",
-    label: "App",
-  },
+  { icon: Droplets, value: "7.0", label: "pH" },
+  { icon: Gauge, value: "2.9", label: "NTU" },
+  { icon: Smartphone, value: "En vivo", label: "App" },
 ];
 
 export function ExperienceFlow() {
   return (
-    <section id="experience" className="relative overflow-hidden bg-[#fbfff8] px-5 py-24 text-[#07110d] sm:px-8 lg:px-12">
-      <div className="croak-dot-field absolute inset-0 opacity-60" aria-hidden="true" />
+    <section id="experience" className="relative bg-[#f5f0e8] px-5 py-24 text-[#0a0f0c] sm:px-8 lg:px-12">
       <div className="relative mx-auto grid max-w-[1440px] gap-16 lg:grid-cols-[0.86fr_1.14fr]">
         <div className="lg:sticky lg:top-28 lg:h-fit">
-          <div className="croak-scroll-stage relative overflow-hidden rounded-[2rem] border border-[#0c4f36]/12 bg-[#ecfff3]/80 p-6 shadow-[0_34px_110px_rgba(19,88,59,0.16)] backdrop-blur-xl sm:p-8">
-            <div className="croak-flow-map" aria-hidden="true" />
-            <div className="croak-water-thread croak-water-thread-a" aria-hidden="true" />
-            <div className="croak-water-thread croak-water-thread-b" aria-hidden="true" />
-
-            <div className="relative z-10 flex items-center justify-between">
+          <div className="croak-scroll-stage relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-[0_24px_80px_rgba(0,0,0,0.1)] sm:p-8">
+            <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-[#0f8f5b]">Croak en acción</p>
-                <p className="mt-3 max-w-sm text-2xl font-black leading-tight">
-                  De sensor físico a decisión clara.
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22c97e]">Croak en acción</p>
+                <h3 className="mt-3 max-w-sm text-2xl leading-tight text-[#0a0f0c]">
+                  De sensor físico<br />a decisión clara.
+                </h3>
               </div>
-              <ShieldCheck className="h-8 w-8 text-[#0f8f5b]" aria-hidden="true" />
+              <ShieldCheck className="h-7 w-7 text-[#22c97e]" aria-hidden="true" />
             </div>
 
-            <div className="relative z-10 mt-10 flex min-h-[340px] items-center justify-center">
-              <div className="absolute h-[78%] w-[78%] rounded-full border border-[#0f8f5b]/16 bg-white/28 shadow-[inset_0_0_70px_rgba(105,221,153,0.16)]" aria-hidden="true" />
-              <div className="absolute h-[55%] w-[55%] rounded-full border border-[#1586a8]/12" aria-hidden="true" />
-
-              <div className="absolute left-0 top-8 z-20 hidden rounded-2xl border border-[#0c4f36]/12 bg-white/82 px-4 py-3 shadow-[0_18px_52px_rgba(19,88,59,0.14)] backdrop-blur-xl sm:block">
-                <p className="text-xs font-black uppercase text-[#0f8f5b]">Estado</p>
-                <p className="mt-1 text-sm font-black">Agua segura</p>
-              </div>
-
-              <div className="absolute bottom-8 right-0 z-20 hidden rounded-2xl border border-[#0c4f36]/12 bg-white/82 px-4 py-3 text-right shadow-[0_18px_52px_rgba(19,88,59,0.14)] backdrop-blur-xl sm:block">
-                <p className="text-xs font-black uppercase text-[#1586a8]">Señal</p>
-                <p className="mt-1 text-sm font-black">Sin cambios bruscos</p>
-              </div>
-
+            <div className="relative mt-8 flex min-h-[300px] items-center justify-center">
               <img
                 src={croakModelExploded}
                 alt="Modelo 3D de Croak con componentes internos visibles"
-                className="croak-scroll-float relative z-10 w-full max-w-[520px] rounded-[1.4rem] border border-white/70 object-contain shadow-[0_34px_80px_rgba(19,88,59,0.18)]"
+                className="croak-scroll-float relative z-10 w-full max-w-[460px] rounded-[1.4rem] object-contain drop-shadow-[0_24px_40px_rgba(0,0,0,0.12)]"
               />
             </div>
 
-            <div className="relative z-20 mt-6 grid gap-3 sm:grid-cols-3">
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {stageMetrics.map((metric) => {
                 const IconComponent = metric.icon;
-
                 return (
-                  <div key={metric.label} className="rounded-2xl border border-[#0c4f36]/12 bg-white/78 p-4 shadow-[0_14px_42px_rgba(19,88,59,0.11)] backdrop-blur-2xl">
-                    <IconComponent className="h-5 w-5 text-[#0f8f5b]" aria-hidden="true" />
-                    <p className="mt-3 text-xl font-black">{metric.value}</p>
-                    <p className="text-xs font-bold text-[#254235]/56">{metric.label}</p>
+                  <div key={metric.label} className="rounded-2xl border border-[#0a0f0c]/8 bg-[#f5f0e8] p-4">
+                    <IconComponent className="h-4 w-4 text-[#22c97e]" aria-hidden="true" />
+                    <p className="font-data mt-3 text-xl font-medium text-[#0a0f0c]">{metric.value}</p>
+                    <p className="text-xs font-medium text-[#4a5e52]">{metric.label}</p>
                   </div>
                 );
               })}
@@ -105,15 +74,15 @@ export function ExperienceFlow() {
         </div>
 
         <div>
-          <p className="croak-scroll-reveal text-sm font-black uppercase tracking-[0.24em] text-[#0f8f5b]">Flujo vivo</p>
-          <h2 className="croak-scroll-reveal mt-5 max-w-3xl text-4xl font-black leading-none tracking-tight sm:text-5xl lg:text-6xl">
+          <p className="croak-scroll-reveal text-xs font-semibold uppercase tracking-[0.2em] text-[#22c97e]">Flujo vivo</p>
+          <h2 className="croak-scroll-reveal mt-5 max-w-3xl text-4xl leading-[1.05] tracking-tight text-[#0a0f0c] sm:text-5xl lg:text-6xl">
             La experiencia se siente viva porque la señal nunca se detiene.
           </h2>
-          <p className="croak-scroll-reveal mt-6 max-w-2xl text-lg leading-8 text-[#254235]/76">
+          <p className="croak-scroll-reveal mt-6 max-w-2xl text-lg leading-relaxed text-[#4a5e52]">
             Croak conecta el dispositivo, las lecturas y la app para que sepas qué está pasando con tu agua en cada momento. Si algo cambia, recibes contexto claro para actuar antes de que se vuelva un problema.
           </p>
 
-          <div className="mt-12 space-y-6">
+          <div className="mt-12 space-y-4">
             {flowSteps.map((step, index) => {
               const IconComponent = step.icon;
               const formattedIndex = String(index + 1).padStart(2, "0");
@@ -121,21 +90,21 @@ export function ExperienceFlow() {
               return (
                 <article
                   key={step.title}
-                  className="croak-scroll-reveal group rounded-[2rem] border border-[#0c4f36]/12 bg-white/78 p-6 shadow-[0_24px_78px_rgba(19,88,59,0.1)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#0f8f5b]/45 hover:shadow-[0_34px_100px_rgba(19,88,59,0.16)]"
+                  className="croak-scroll-reveal group rounded-2xl border border-[#0a0f0c]/8 bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#22c97e]/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)]"
                 >
                   <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-[#07110d] text-[#9dffd0] transition-transform group-hover:rotate-3 group-hover:scale-105">
-                      <IconComponent className="h-6 w-6" aria-hidden="true" />
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#0a0f0c] text-[#22c97e]">
+                      <IconComponent className="h-5 w-5" aria-hidden="true" />
                     </div>
                     <div>
                       <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-sm font-black text-[#0f8f5b]">{formattedIndex}</span>
-                        <span className="rounded-full bg-[#e8fff0] px-3 py-1 text-xs font-black uppercase text-[#0c6a45]">
+                        <span className="font-data text-xs font-medium text-[#22c97e]">{formattedIndex}</span>
+                        <span className="rounded-full border border-[#0a0f0c]/10 bg-[#f5f0e8] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#4a5e52]">
                           {step.meta}
                         </span>
                       </div>
-                      <h3 className="mt-4 text-2xl font-black">{step.title}</h3>
-                      <p className="mt-3 leading-7 text-[#254235]/70">{step.text}</p>
+                      <h3 className="mt-3 text-xl text-[#0a0f0c]">{step.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[#4a5e52]">{step.text}</p>
                     </div>
                   </div>
                 </article>

@@ -5,84 +5,73 @@ import croakLogo from "../../assets/croak_logo.png";
 export function Footer() {
   const navigate = useNavigate();
 
-  const handleAboutNavigation = () => {
-    navigate("/nosotros");
-  };
-
   return (
-    <footer className="border-t border-[#0c4f36]/10 bg-[#fbfff8] px-5 py-16 text-[#07110d] sm:px-8 lg:px-12">
+    <footer className="border-t border-[#22c97e]/8 bg-[#0a0f0c] px-5 py-16 text-[#e8f0ec] sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid gap-12 md:grid-cols-[1.4fr_0.8fr]">
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white shadow-[0_14px_34px_rgba(19,88,59,0.12)]">
-                <img
-                  src={croakLogo}
-                  alt="Logo de Croak"
-                  className="h-9 w-9 object-contain"
-                />
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#22c97e]/15 bg-[#111a14]">
+                <img src={croakLogo} alt="Logo de Croak" className="h-7 w-7 object-contain" />
               </span>
-              <span className="text-2xl font-black text-[#07110d]">
-                Croak
-              </span>
+              <span className="text-xl font-bold tracking-tight text-[#e8f0ec]">Croak</span>
             </div>
-            <p className="max-w-md leading-7 text-[#254235]/66">
+            <p className="max-w-md text-sm leading-relaxed text-[#6b8c7a]">
               Hardware y app para que la calidad del agua deje de ser una suposición. Lecturas claras, alertas útiles y una experiencia pensada para revisarse diario.
             </p>
             <div className="mt-7 flex items-center gap-3">
-              <a
-                href="https://www.youtube.com/watch?v=5xsPYnQADno"
-                target="_blank"
-                rel="noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white text-[#254235]/70 shadow-[0_14px_34px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/50 hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
-                aria-label="Ver Croak en YouTube"
-              >
-                <Youtube className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a
-                href="https://github.com/santiagocachoo/croak_webpage"
-                target="_blank"
-                rel="noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white text-[#254235]/70 shadow-[0_14px_34px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/50 hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
-                aria-label="Ver repositorio de Croak en GitHub"
-              >
-                <Github className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a
-                href="https://www.instagram.com/croaksafe"
-                target="_blank"
-                rel="noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0c4f36]/10 bg-white text-[#254235]/70 shadow-[0_14px_34px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/50 hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
-                aria-label="Ver Instagram de Croak"
-              >
-                <Instagram className="h-5 w-5" aria-hidden="true" />
-              </a>
+              {[
+                { href: "https://www.youtube.com/watch?v=5xsPYnQADno", Icon: Youtube, label: "Ver Croak en YouTube" },
+                { href: "https://github.com/santiagocachoo/croak_webpage", Icon: Github, label: "Ver repositorio de Croak en GitHub" },
+                { href: "https://www.instagram.com/croaksafe", Icon: Instagram, label: "Ver Instagram de Croak" },
+              ].map(({ href, Icon, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#22c97e]/12 bg-[#111a14] text-[#6b8c7a] transition-all hover:border-[#22c97e]/30 hover:text-[#22c97e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
+                  aria-label={label}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <h4 className="mb-4 font-black text-[#07110d]">Enlaces</h4>
-            <ul className="space-y-3 text-[#254235]/66">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#22c97e]">Enlaces</h4>
+            <ul className="space-y-3 text-sm text-[#6b8c7a]">
               <li>
                 <button
                   type="button"
-                  onClick={handleAboutNavigation}
-                  className="text-left transition-colors hover:text-[#0f8f5b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+                  onClick={() => navigate("/nosotros")}
+                  className="transition-colors hover:text-[#e8f0ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
                 >
                   Nosotros
                 </button>
               </li>
-              <li><a href="mailto:croakfernando@gmail.com?subject=Quiero%20Croak" className="transition-colors hover:text-[#0f8f5b]">Quiero Croak</a></li>
-              <li><a href="mailto:croakfernando@gmail.com" className="transition-colors hover:text-[#0f8f5b]">Soporte</a></li>
-              <li><a href="https://fernandox89.github.io/app_croak/" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#0f8f5b]">Demo app</a></li>
+              <li>
+                <a href="mailto:croakfernando@gmail.com?subject=Quiero%20Croak" className="transition-colors hover:text-[#e8f0ec]">
+                  Quiero Croak
+                </a>
+              </li>
+              <li>
+                <a href="mailto:croakfernando@gmail.com" className="transition-colors hover:text-[#e8f0ec]">
+                  Soporte
+                </a>
+              </li>
+              <li>
+                <a href="https://fernandox89.github.io/app_croak/" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#e8f0ec]">
+                  Demo app
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-[#0c4f36]/10 pt-8 text-sm font-bold text-[#254235]/48 md:flex-row md:items-center md:justify-between">
-          <p>
-            © 2026 Croak. Todos los derechos reservados.
-          </p>
+        <div className="mt-12 flex flex-col gap-4 border-t border-[#22c97e]/8 pt-8 text-xs text-[#4a5e52] md:flex-row md:items-center md:justify-between">
+          <p>© 2026 Croak. Todos los derechos reservados.</p>
           <p>Monitoreo preventivo de calidad de agua.</p>
         </div>
       </div>

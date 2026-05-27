@@ -32,57 +32,47 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {
-    setOpenIndex((currentIndex) => {
-      if (currentIndex === index) {
-        return null;
-      }
-
-      return index;
-    });
+    setOpenIndex((current) => (current === index ? null : index));
   };
 
   return (
-    <section className="relative overflow-hidden bg-white px-5 py-24 text-[#07110d] sm:px-8 lg:px-12" id="faq">
-      <div className="croak-dot-field absolute inset-0 opacity-60" aria-hidden="true" />
+    <section className="relative bg-[#0a0f0c] px-5 py-24 text-[#e8f0ec] sm:px-8 lg:px-12" id="faq">
       <div className="relative mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="croak-scroll-reveal">
-          <p className="text-sm font-black uppercase tracking-[0.24em] text-[#0f8f5b]">Preguntas frecuentes</p>
-          <h2 className="mt-5 text-4xl font-black leading-none tracking-tight sm:text-5xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22c97e]">Preguntas frecuentes</p>
+          <h2 className="mt-5 text-4xl leading-[1.05] tracking-tight sm:text-5xl">
             Lo importante, sin letra chiquita.
           </h2>
-          <p className="mt-6 text-lg leading-8 text-[#254235]/76">
+          <p className="mt-6 text-lg leading-relaxed text-[#6b8c7a]">
             Croak está pensado para monitoreo doméstico y lectura preventiva. No reemplaza un laboratorio certificado, pero sí te ayuda a detectar cambios cotidianos antes.
           </p>
           <a
             href="mailto:croakfernando@gmail.com"
-            className="mt-8 inline-flex rounded-xl border border-[#0c4f36]/14 bg-[#fbfff8] px-5 py-3 font-black text-[#07110d] shadow-[0_18px_42px_rgba(19,88,59,0.1)] transition-transform hover:-translate-y-1 hover:border-[#0f8f5b]/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f8f5b]"
+            className="mt-8 inline-flex rounded-xl border border-[#22c97e]/20 bg-[#111a14] px-5 py-3 font-medium text-[#e8f0ec] transition-all hover:border-[#22c97e]/40 hover:text-[#22c97e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22c97e]"
             aria-label="Contactar al equipo de Croak por correo"
           >
             Hablar con el equipo
           </a>
         </div>
 
-        <div className="croak-scroll-reveal overflow-hidden rounded-3xl border border-[#0c4f36]/12 bg-white/86 shadow-[0_28px_90px_rgba(19,88,59,0.12)] backdrop-blur-xl">
+        <div className="croak-scroll-reveal overflow-hidden rounded-2xl border border-[#22c97e]/10 bg-[#111a14]">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
-
             return (
-              <div key={faq.question} className="border-b border-[#0c4f36]/10 last:border-b-0">
+              <div key={faq.question} className="border-b border-[#22c97e]/8 last:border-b-0">
                 <button
                   type="button"
                   onClick={() => handleToggle(index)}
-                  className={`flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors duration-300 hover:bg-[#ecfff3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#0f8f5b] sm:px-7 ${isOpen ? "bg-[#ecfff3]/70" : ""}`}
+                  className={`flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors duration-200 hover:bg-[#162019] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#22c97e] sm:px-6 ${isOpen ? "bg-[#162019]" : ""}`}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <span className="font-black text-[#07110d]">
-                    {faq.question}
-                  </span>
-                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#07110d] text-[#9dffd0] transition-transform duration-300">
+                  <span className="font-medium text-[#e8f0ec]">{faq.question}</span>
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-[#22c97e]/20 bg-[#0a0f0c] text-[#22c97e] transition-colors">
                     {isOpen ? (
-                      <Minus className="h-4 w-4" aria-hidden="true" />
+                      <Minus className="h-3.5 w-3.5" aria-hidden="true" />
                     ) : (
-                      <Plus className="h-4 w-4" aria-hidden="true" />
+                      <Plus className="h-3.5 w-3.5" aria-hidden="true" />
                     )}
                   </span>
                 </button>
@@ -93,9 +83,7 @@ export function FAQ() {
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-6 leading-7 text-[#254235]/76 sm:px-7">
-                      {faq.answer}
-                    </p>
+                    <p className="px-5 pb-5 text-sm leading-relaxed text-[#6b8c7a] sm:px-6">{faq.answer}</p>
                   </div>
                 </div>
               </div>
