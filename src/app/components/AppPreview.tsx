@@ -27,6 +27,10 @@ const appStatusItems = [
 export function AppPreview() {
   return (
     <section className="relative bg-[#f5f0e8] px-5 py-24 text-[#0a0f0c] sm:px-8 lg:px-12" id="how-it-works">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0a0f0c] to-transparent"
+        aria-hidden="true"
+      />
       <div className="relative mx-auto grid max-w-[1440px] gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="croak-scroll-reveal relative order-2 lg:order-1">
           <div className="relative mx-auto max-w-[380px]">

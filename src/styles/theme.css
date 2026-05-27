@@ -119,7 +119,7 @@
   h4,
   h5,
   h6 {
-    font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
     font-weight: 400;
   }
 
@@ -166,6 +166,21 @@
   .font-data {
     font-family: "DM Mono", "Courier New", monospace;
     font-variant-numeric: tabular-nums;
+  }
+
+  .croak-noise {
+    isolation: isolate;
+  }
+
+  .croak-noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: -1;
   }
 
   .croak-scroll-reveal {

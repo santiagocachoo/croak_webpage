@@ -36,7 +36,11 @@ export function FAQ() {
   };
 
   return (
-    <section className="relative bg-[#0a0f0c] px-5 py-24 text-[#e8f0ec] sm:px-8 lg:px-12" id="faq">
+    <section className="croak-noise relative bg-[#0a0f0c] px-5 py-24 text-[#e8f0ec] sm:px-8 lg:px-12" id="faq">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#f5f0e8] to-transparent"
+        aria-hidden="true"
+      />
       <div className="relative mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="croak-scroll-reveal">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22c97e]">Preguntas frecuentes</p>

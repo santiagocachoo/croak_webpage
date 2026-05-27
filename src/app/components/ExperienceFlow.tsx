@@ -37,6 +37,10 @@ const stageMetrics = [
 export function ExperienceFlow() {
   return (
     <section id="experience" className="relative bg-[#f5f0e8] px-5 py-24 text-[#0a0f0c] sm:px-8 lg:px-12">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0a0f0c] to-transparent"
+        aria-hidden="true"
+      />
       <div className="relative mx-auto grid max-w-[1440px] gap-16 lg:grid-cols-[0.86fr_1.14fr]">
         <div className="lg:sticky lg:top-28 lg:h-fit">
           <div className="croak-scroll-stage relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-[0_24px_80px_rgba(0,0,0,0.1)] sm:p-8">

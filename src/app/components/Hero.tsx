@@ -1,20 +1,58 @@
 import { ArrowRight, Play } from "lucide-react";
+import { useEffect, useState } from "react";
 import croakHero from "../../assets/croak_hero.png";
 
+function useCountUp(target: number, duration = 1500, decimals = 0) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    const start = performance.now();
+    let rafId: number;
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      setValue(+(ease * target).toFixed(decimals));
+      if (t < 1) rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [target, duration, decimals]);
+  return value.toFixed(decimals);
+}
+
 const heroMetrics = [
-  { label: "pH", value: "7.0", detail: "Rango normal" },
-  { label: "Turbidez", value: "2.9", detail: "NTU en vivo" },
-  { label: "TDS", value: "179", detail: "ppm estable" },
+  { label: "pH", target: 7.0, decimals: 1, detail: "Rango normal" },
+  { label: "Turbidez", target: 2.9, decimals: 1, detail: "NTU en vivo" },
+  { label: "TDS", target: 179, decimals: 0, detail: "ppm estable" },
 ];
+
+function MetricCard({ metric, index, total }: { metric: (typeof heroMetrics)[0]; index: number; total: number }) {
+  const value = useCountUp(metric.target, 1600, metric.decimals);
+  return (
+    <div className={`p-4 sm:p-5 ${index < total - 1 ? "border-r border-[#22c97e]/10" : ""}`}>
+      <p className="font-data text-2xl font-medium text-[#e8f0ec] sm:text-3xl">{value}</p>
+      <p className="mt-1 text-sm font-semibold text-[#22c97e]">{metric.label}</p>
+      <p className="mt-0.5 text-xs text-[#6b8c7a]">{metric.detail}</p>
+    </div>
+  );
+}
 
 export function Hero() {
   return (
     <section
       id="product"
-      className="relative isolate min-h-screen overflow-hidden bg-[#0a0f0c] px-5 pb-20 pt-32 text-[#e8f0ec] sm:px-8 lg:px-12"
+      className="croak-noise relative isolate min-h-screen overflow-hidden bg-[#0a0f0c] px-5 pb-20 pt-32 text-[#e8f0ec] sm:px-8 lg:px-12"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-5%,rgba(34,201,126,0.11)_0%,transparent_60%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-5%,rgba(34,201,126,0.10)_0%,transparent_60%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(34,201,126,0.07) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
         aria-hidden="true"
       />
 
@@ -33,8 +71,8 @@ export function Hero() {
             visible.
           </h1>
 
-          <p className="mt-8 max-w-lg text-lg leading-relaxed text-[#6b8c7a]">
-            Croak lee pH, turbidez, temperatura y sólidos disueltos para convertir señales técnicas en una respuesta simple: cómo está tu agua ahora y cuándo debes poner atención.
+          <p className="mt-8 max-w-md text-lg leading-relaxed text-[#6b8c7a]">
+            Croak convierte pH, turbidez y TDS en una respuesta directa: todo bien, o hay algo que atender.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -60,14 +98,7 @@ export function Hero() {
 
           <div className="mt-12 grid grid-cols-3 overflow-hidden rounded-2xl border border-[#22c97e]/10 bg-[#111a14]">
             {heroMetrics.map((metric, i) => (
-              <div
-                key={metric.label}
-                className={`p-4 sm:p-5 ${i < heroMetrics.length - 1 ? "border-r border-[#22c97e]/10" : ""}`}
-              >
-                <p className="font-data text-2xl font-medium text-[#e8f0ec] sm:text-3xl">{metric.value}</p>
-                <p className="mt-1 text-sm font-semibold text-[#22c97e]">{metric.label}</p>
-                <p className="mt-0.5 text-xs text-[#6b8c7a]">{metric.detail}</p>
-              </div>
+              <MetricCard key={metric.label} metric={metric} index={i} total={heroMetrics.length} />
             ))}
           </div>
         </div>
@@ -80,7 +111,7 @@ export function Hero() {
           <img
             src={croakHero}
             alt="Dispositivo Croak para monitorear la calidad del agua"
-            className="croak-device-float relative z-10 w-full max-w-[440px] object-contain drop-shadow-[0_60px_80px_rgba(34,201,126,0.18)] sm:max-w-[580px]"
+            className="croak-device-float relative z-10 w-full max-w-[480px] object-contain drop-shadow-[0_60px_80px_rgba(34,201,126,0.20)] sm:max-w-[620px]"
           />
         </div>
       </div>
