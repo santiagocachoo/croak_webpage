@@ -21,6 +21,7 @@ pnpm-debug.log*
 # editor
 .vscode/
 .idea/
+.claude/
 
 # coverage
 coverage/
