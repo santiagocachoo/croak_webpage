@@ -79,7 +79,7 @@ export function FAQ() {
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 text-sm leading-relaxed text-[#436856] sm:px-6">{faq.answer}</p>
+                    <p className="px-5 pb-5 pt-4 text-sm leading-relaxed text-[#436856] sm:px-6">{faq.answer}</p>
                   </div>
                 </div>
               </div>

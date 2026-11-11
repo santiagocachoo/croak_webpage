@@ -72,8 +72,7 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="croak-reveal croak-reveal-delay relative min-h-[460px]">
-              <div className="absolute inset-10 rounded-full border border-[#c4e8d4] bg-white/25 shadow-[inset_0_0_90px_rgba(105,221,153,0.16)]" aria-hidden="true" />
+            <div className="croak-reveal croak-reveal-delay relative flex min-h-[460px] items-center justify-center">
               <img
                 src={croakModelSide}
                 alt="Vista lateral del modelo 3D de Croak"
