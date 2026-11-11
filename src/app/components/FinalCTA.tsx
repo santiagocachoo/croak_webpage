@@ -1,5 +1,7 @@
 import { ArrowRight, Mail, ShieldCheck } from "lucide-react";
-import croakLogo from "../../assets/croak_logo.png";
+import croakLogo from "../../assets/croak_logo.webp";
+import { WEB3FORMS_ACCESS_KEY } from "../config";
+import { InterestForm } from "./InterestForm";
 
 export function FinalCTA() {
   return (
@@ -16,41 +18,47 @@ export function FinalCTA() {
         aria-hidden="true"
       />
 
-      <div className="croak-scroll-reveal relative mx-auto max-w-[860px] text-center">
+      <div className="croak-scroll-reveal relative mx-auto max-w-[760px] text-center">
         <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/10">
           <img src={croakLogo} alt="Logo de Croak" className="h-10 w-10 object-contain" />
         </div>
 
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Listo para probarse</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Prototipo funcional</p>
         <h2 className="mx-auto mt-5 max-w-2xl text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Lleva Croak a tu casa, laboratorio o demo.
+          Conoce Croak de cerca.
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/75">
-          Escríbenos, agenda una demo y te ayudamos a revisar el caso de uso ideal para instalar Croak y validar las lecturas desde la app.
+          Escríbenos para ver el prototipo en funcionamiento, conocer al equipo o seguir el desarrollo del proyecto.
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="mailto:croakfernando@gmail.com?subject=Quiero%20comprar%20Croak"
-            className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-bold text-[#0b7a4f] shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-[transform,box-shadow,background-color] duration-200 hover:bg-[#edf8f3] hover:shadow-[0_8px_32px_rgba(0,0,0,0.2)] active:scale-[0.97] active:shadow-[0_2px_8px_rgba(0,0,0,0.10)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-            aria-label="Enviar correo para comprar Croak"
-          >
-            Comprar ahora
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-          </a>
-          <a
-            href="mailto:croakfernando@gmail.com?subject=Demo%20de%20Croak"
-            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white/25 px-6 py-4 font-bold text-white transition-[transform,border-color,background-color] duration-200 hover:border-white/50 hover:bg-white/10 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-            aria-label="Enviar correo para agendar una demo de Croak"
-          >
-            <Mail className="h-5 w-5" aria-hidden="true" />
-            Agendar demo
-          </a>
-        </div>
+        {WEB3FORMS_ACCESS_KEY ? (
+          <div className="mt-10">
+            <InterestForm />
+          </div>
+        ) : (
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="mailto:croakfernando@gmail.com?subject=Quiero%20saber%20m%C3%A1s%20de%20Croak"
+              className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-bold text-[#0b7a4f] shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-[transform,box-shadow,background-color] duration-200 hover:bg-[#edf8f3] hover:shadow-[0_8px_32px_rgba(0,0,0,0.2)] active:scale-[0.97] active:shadow-[0_2px_8px_rgba(0,0,0,0.10)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              aria-label="Escribir al equipo de Croak para saber más"
+            >
+              Quiero saber más
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </a>
+            <a
+              href="mailto:croakfernando@gmail.com?subject=Demo%20de%20Croak"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white/25 px-6 py-4 font-bold text-white transition-[transform,border-color,background-color] duration-200 hover:border-white/50 hover:bg-white/10 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              aria-label="Enviar correo para agendar una demo de Croak"
+            >
+              <Mail className="h-5 w-5" aria-hidden="true" />
+              Agendar demo
+            </a>
+          </div>
+        )}
 
         <div className="mt-10 flex items-center justify-center gap-2.5 text-sm text-white/65">
           <ShieldCheck className="h-4 w-4 flex-shrink-0 text-white/80" aria-hidden="true" />
-          Monitoreo preventivo. Lecturas claras. Soporte directo del equipo.
+          Hardware y software desarrollados por el equipo de Croak.
         </div>
       </div>
     </section>

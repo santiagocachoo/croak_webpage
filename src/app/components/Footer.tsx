@@ -1,6 +1,6 @@
 import { Github, Instagram, Youtube } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import croakLogo from "../../assets/croak_logo.png";
+import croakLogo from "../../assets/croak_logo.webp";
 
 export function Footer() {
   const navigate = useNavigate();
@@ -58,12 +58,12 @@ export function Footer() {
               </li>
               <li>
                 <a href="mailto:croakfernando@gmail.com" className="cursor-pointer transition-colors hover:text-[#0b1f15]">
-                  Soporte
+                  Contacto
                 </a>
               </li>
               <li>
                 <a href="https://fernandox89.github.io/app_croak/" target="_blank" rel="noreferrer" className="cursor-pointer transition-colors hover:text-[#0b1f15]">
-                  Demo app
+                  Prototipo de la app
                 </a>
               </li>
             </ul>

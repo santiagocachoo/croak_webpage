@@ -92,19 +92,21 @@ croak_webpage/
 ├── src/
 │   ├── app/
 │   │   ├── App.tsx
+│   │   ├── config.ts
 │   │   └── components/
-│   │       ├── AppPreview.tsx
-│   │       ├── ExperienceFlow.tsx
 │   │       ├── FAQ.tsx
 │   │       ├── FinalCTA.tsx
 │   │       ├── Footer.tsx
-│   │       ├── Hero.tsx
+│   │       ├── InterestForm.tsx
 │   │       ├── Navbar.tsx
-│   │       └── ProblemSolution.tsx
 │   ├── assets/
-│   │   ├── croak_hero.png
-│   │   ├── croak_logo.png
-│   │   └── preview_app.png
+│   │   ├── croak_hero.webp
+│   │   ├── croak_logo.webp
+│   │   ├── croak_model_exploded.webp
+│   │   ├── croak_model_side.webp
+│   │   └── preview_app.webp
+│   ├── hooks/
+│   │   └── useStagger.ts
 │   ├── pages/
 │   │   ├── AboutPage.tsx
 │   │   └── HomePage.tsx
@@ -127,7 +129,7 @@ croak_webpage/
 - `index.html` define el contenedor raíz.
 - `src/main.tsx` monta React y envuelve la app con `HashRouter`.
 - `src/app/App.tsx` define las rutas principales.
-- `src/pages/HomePage.tsx` compone la landing.
+- `src/pages/HomePage.tsx` contiene la landing completa (hero, métricas, problema, prototipo, cómo funciona y app).
 - `src/pages/AboutPage.tsx` compone la página de Nosotros.
 - `src/app/components/` contiene las secciones reutilizables.
 - `src/assets/` contiene imágenes locales del producto, logo y preview de app.
@@ -150,10 +152,7 @@ Esto evita errores 404 al refrescar o entrar directo a una ruta interna en GitHu
 La landing está compuesta por:
 
 - `Navbar`: navegación principal, con enlace a Nosotros y CTA.
-- `Hero`: primer impacto visual, mensaje principal y llamadas a la acción.
-- `ExperienceFlow`: sección de flujo con narrativa visual del sistema Croak.
-- `ProblemSolution`: señales claras y beneficios del monitoreo.
-- `AppPreview`: preview de la app y acciones principales.
+- Secciones propias de la landing (en `HomePage.tsx`): hero, métricas, el problema, el prototipo, cómo funciona y app.
 - `FAQ`: preguntas frecuentes con acordeón.
 - `FinalCTA`: cierre de conversión.
 - `Footer`: enlaces útiles, redes y contacto.
@@ -162,9 +161,11 @@ La landing está compuesta por:
 
 Assets locales actuales:
 
-- `croak_logo.png`: logo de Croak.
-- `croak_hero.png`: imagen del dispositivo físico.
-- `preview_app.png`: captura de la app móvil.
+- `croak_logo.webp`: logo de Croak.
+- `croak_hero.webp`: imagen del dispositivo físico.
+- `croak_model_exploded.webp`: modelo 3D con componentes internos visibles.
+- `croak_model_side.webp`: vista lateral del modelo 3D.
+- `preview_app.webp`: captura del prototipo de la app móvil.
 
 Los assets se importan desde componentes para que Vite los procese correctamente durante el build.
 
@@ -179,8 +180,8 @@ Los assets se importan desde componentes para que Vite los procese correctamente
 
 - `Nosotros`: abre la página de Nosotros.
 - `Quiero Croak`: abre correo para contacto comercial.
-- `Soporte`: abre correo de soporte/contacto.
-- `Demo app`: abre la preview externa de la app.
+- `Contacto`: abre correo de contacto.
+- `Prototipo de la app`: abre el prototipo interactivo externo de la app.
 - Iconos sociales: YouTube, GitHub e Instagram.
 
 ## Contacto
@@ -271,9 +272,8 @@ docs: update Spanish readme
 Si vas a modificar el sitio, empieza por:
 
 - `src/pages/HomePage.tsx`
-- `src/app/components/Hero.tsx`
-- `src/app/components/ExperienceFlow.tsx`
-- `src/app/components/AppPreview.tsx`
+- `src/app/components/FinalCTA.tsx`
+- `src/app/components/InterestForm.tsx`
 - `src/app/components/FAQ.tsx`
 - `src/app/components/Footer.tsx`
 - `src/pages/AboutPage.tsx`

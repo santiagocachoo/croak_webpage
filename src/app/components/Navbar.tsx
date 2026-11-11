@@ -1,7 +1,7 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import croakLogo from "../../assets/croak_logo.png";
+import croakLogo from "../../assets/croak_logo.webp";
 
 type NavbarProps = {
   isLanding?: boolean;
@@ -45,7 +45,7 @@ export function Navbar({ isLanding = false }: NavbarProps) {
 
   const handleSectionNavigation = (sectionId: string) => {
     setIsMenuOpen(false);
-    if (!isLanding || location.pathname !== "/") {
+    if (!isLanding || !document.getElementById(sectionId)) {
       navigate("/");
       window.setTimeout(() => scrollToSection(sectionId), 80);
       return;

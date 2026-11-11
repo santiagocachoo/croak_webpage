@@ -28,3 +28,6 @@ coverage/
 
 # misc
 *.local
+
+# claude code
+CLAUDE.md
