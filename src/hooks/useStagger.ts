@@ -3,8 +3,9 @@ import { useEffect, useRef } from "react";
 const EASING = "cubic-bezier(0.23, 1, 0.32, 1)";
 const DURATION = "600ms";
 
-export function useStagger(itemDelay = 90) {
-  const ref = useRef<HTMLDivElement>(null);
+// El tipo del contenedor es configurable (por ejemplo, una lista <ol>); por defecto, un <div>.
+export function useStagger<T extends HTMLElement = HTMLDivElement>(itemDelay = 90) {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const el = ref.current;

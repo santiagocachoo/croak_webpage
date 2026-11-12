@@ -1,10 +1,8 @@
 import { Github, Instagram, Youtube } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import croakLogo from "../../assets/croak_logo.webp";
 
 export function Footer() {
-  const navigate = useNavigate();
-
   return (
     <footer className="border-t border-[#d8eee5] bg-[#edf8f3] px-5 py-16 text-[#0b1f15] sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1440px]">
@@ -43,13 +41,12 @@ export function Footer() {
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#0b7a4f]">Enlaces</h4>
             <ul className="space-y-3 text-sm text-[#436856]">
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate("/nosotros")}
+                <Link
+                  to="/nosotros"
                   className="cursor-pointer transition-colors hover:text-[#0b1f15] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
                 >
                   Nosotros
-                </button>
+                </Link>
               </li>
               <li>
                 <a href="mailto:croakfernando@gmail.com?subject=Quiero%20Croak" className="cursor-pointer transition-colors hover:text-[#0b1f15]">

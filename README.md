@@ -84,6 +84,7 @@ Página de Nosotros:
 - `npm run build`: genera el build de producción en `dist/`.
 - `npm run predeploy`: ejecuta el build antes de publicar.
 - `npm run deploy`: publica `dist/` en GitHub Pages.
+- `npm run model -- "/ruta/al/modelo.glb"`: optimiza un modelo 3D para la web (ver "Modelo 3D").
 
 ## Estructura del proyecto
 
@@ -166,8 +167,42 @@ Assets locales actuales:
 - `croak_model_exploded.webp`: modelo 3D con componentes internos visibles.
 - `croak_model_side.webp`: vista lateral del modelo 3D.
 - `preview_app.webp`: captura del prototipo de la app móvil.
+- `croak_model.glb`: ensamble 3D (9 piezas) que usa el visor "Explorar en 3D".
+- `public/og-image.jpg`: vista previa (1200×630) que aparece al compartir el enlace en WhatsApp o redes.
 
 Los assets se importan desde componentes para que Vite los procese correctamente durante el build.
+
+## Modelo 3D
+
+La sección "El prototipo" tiene un botón **Explorar en 3D** que muestra el modelo de Onshape con [`<model-viewer>`](https://modelviewer.dev): se puede girar, acercar y, en celulares compatibles, ver en realidad aumentada ("Ver en tu espacio").
+
+- El visor (`src/app/components/Model3DViewer.tsx`) solo se descarga cuando alguien toca el botón, así que no afecta la carga inicial.
+- El modelo está en `src/assets/croak_model.glb`, comprimido con Draco.
+- El decodificador Draco se sirve desde `public/draco/` (copiado de `three/examples/jsm/libs/draco/gltf/`), sin depender de un CDN. Si actualizan `three`, vuelvan a copiar esos dos archivos.
+
+### De dónde sale el modelo
+
+El modelo actual se generó desde el ensamble de SolidWorks (`ensamblaje completo.SLDASM`) **sin los archivos de las piezas**: SolidWorks guarda dentro del ensamble una copia de la malla de cada pieza, y `scripts/sldasm-to-glb.py` la extrae. Así el modelo trae las 9 piezas por separado (carcasa, electrodo de pH, sensor de turbidez, sensor TDS, empaques y roscas), el tubo transparente y la animación "Separar" que usa el botón **Separar piezas** del visor.
+
+```bash
+python3 scripts/sldasm-to-glb.py "/ruta/a/ensamblaje completo.SLDASM" /tmp/croak_ensamble.glb
+npm run model -- /tmp/croak_ensamble.glb
+```
+
+En `scripts/sldasm-to-glb.py` están los nombres que se muestran, los colores de cada pieza y cuánto sube cada una en la vista separada. Las etiquetas y el encuadre de la vista separada están en `src/app/components/Model3DViewer.tsx` (`SENSOR_LABELS`, `EXPLODED_TARGET`).
+
+El formato interno de SolidWorks no está documentado; el script se probó con este archivo (SolidWorks 2021). Si consiguen los `.SLDPRT` (con *Pack and Go*), lo más confiable es exportar el ensamble a GLB desde SolidWorks u Onshape.
+
+### Actualizar el modelo desde Onshape
+
+1. En Onshape: clic derecho en la pestaña del Part Studio o ensamble → *Export* → formato **GLB**.
+2. Optimízalo para la web:
+
+```bash
+npm run model -- "/ruta/al/export.glb"
+```
+
+El script (`scripts/optimize-model.mjs`) une las caras que Onshape exporta por separado, simplifica la malla de forma casi imperceptible, corrige los colores (Onshape los guarda en sRGB y glTF los espera lineales; sin esto el modelo se ve deslavado) y comprime con Draco. Un export de ~1.5 MB queda en ~70 KB.
 
 ## Navegación actual
 

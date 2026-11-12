@@ -3,24 +3,32 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "¿Qué mide Croak?",
-    answer: "Croak mide de forma continua cuatro indicadores de la calidad del agua: pH, turbidez, TDS (sólidos disueltos totales) y temperatura. Las lecturas se registran a lo largo del día para detectar cambios en el momento en que ocurren.",
+    question: "¿Cómo monitorea Croak la calidad del agua?",
+    answer: "Croak usa sensores integrados para seguir de forma continua indicadores clave de la calidad del agua, incluyendo nivel de pH, turbidez y sólidos disueltos totales (TDS). El dispositivo monitorea tu agua 24/7 y envía actualizaciones en tiempo real a la app móvil.",
   },
   {
-    question: "¿En qué etapa está el proyecto?",
-    answer: "El dispositivo es un prototipo funcional que ya mide y registra lecturas. La app está en etapa de diseño: puedes explorar el prototipo interactivo para ver cómo se mostrará la información.",
+    question: "¿Ya puedo comprar Croak?",
+    answer: "Todavía no. Croak es un prototipo funcional y aún no hay fecha de lanzamiento: ya mide pH, turbidez y TDS y envía las lecturas a la app. Si te interesa, escríbenos y te avisaremos cuando abramos las primeras pruebas.",
   },
   {
-    question: "¿Cómo se verán las alertas?",
-    answer: "La app está diseñada para notificarte cuando una lectura sale del rango normal, indicando qué indicador cambió, su valor y la hora del cambio.",
+    question: "¿Cómo se instala Croak?",
+    answer: "Croak va en línea con la tubería: el agua entra por un extremo, pasa frente a los sensores y sale por el otro. Después se conecta a tu red WiFi para enviar las lecturas a la app. Mientras sea prototipo, el equipo te acompaña en la instalación.",
   },
   {
-    question: "¿Reemplaza un análisis de laboratorio?",
-    answer: "No. Croak está pensado para el seguimiento diario del agua en casa. Un análisis de laboratorio certificado sigue siendo la referencia para un diagnóstico completo; Croak te ayuda a detectar cambios entre un análisis y otro.",
+    question: "¿Recibiré alertas si algo cambia?",
+    answer: "Sí. Cuando las lecturas salen de los rangos esperados, Croak envía una notificación a tu celular para que puedas responder rápido. Puedes ajustar los umbrales de alerta desde la app.",
   },
   {
-    question: "¿Cuándo estará disponible?",
-    answer: "Todavía no hay fecha de lanzamiento. Si quieres seguir el avance del proyecto o ver una demostración del prototipo, escríbenos.",
+    question: "¿Qué necesito para usar Croak?",
+    answer: "Una conexión WiFi, un celular para consultar la app y acceso a la línea de agua donde quieras instalarlo. El dispositivo también necesita alimentación eléctrica.",
+  },
+  {
+    question: "¿Croak puede cerrar el paso del agua?",
+    answer: "Todavía no. Estamos desarrollando una válvula para cortar el agua desde la app; en la simulación ya puedes ver cómo funcionaría, pero aún no forma parte del prototipo.",
+  },
+  {
+    question: "¿Croak me dice si el agua es potable?",
+    answer: "No. Croak usa sensores calibrados para seguir los cambios del día a día, pero pH, turbidez y TDS no detectan bacterias, metales pesados ni otros contaminantes. Te avisa cuando algo se sale de lo normal para que lo revises; para saber si el agua es apta para beber se necesita un análisis de laboratorio.",
   },
 ];
 

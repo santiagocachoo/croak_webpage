@@ -7,21 +7,29 @@
     "build": "vite build",
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "model": "node scripts/optimize-model.mjs"
   },
   "dependencies": {
+    "@google/model-viewer": "4.4.0",
     "lucide-react": "0.487.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "^7.13.2"
+    "react-router-dom": "^7.13.2",
+    "three": "0.183.2"
   },
   "devDependencies": {
+    "@gltf-transform/core": "4.5.1",
+    "@gltf-transform/extensions": "4.5.1",
+    "@gltf-transform/functions": "4.5.1",
     "@tailwindcss/vite": "4.1.12",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "4.7.0",
+    "draco3dgltf": "1.5.9",
     "gh-pages": "^6.3.0",
+    "meshoptimizer": "1.2.0",
     "tailwindcss": "4.1.12",
     "vite": "^6.4.1"
   }

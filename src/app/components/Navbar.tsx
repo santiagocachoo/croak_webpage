@@ -45,9 +45,9 @@ export function Navbar({ isLanding = false }: NavbarProps) {
 
   const handleSectionNavigation = (sectionId: string) => {
     setIsMenuOpen(false);
-    if (!isLanding || !document.getElementById(sectionId)) {
-      navigate("/");
-      window.setTimeout(() => scrollToSection(sectionId), 80);
+    if (!isLanding || location.pathname !== "/" || !document.getElementById(sectionId)) {
+      // ScrollToTop (App.tsx) baja a la sección en cuanto la landing termina de renderizar.
+      navigate("/", { state: { scrollTo: sectionId } });
       return;
     }
     scrollToSection(sectionId);
@@ -55,8 +55,11 @@ export function Navbar({ isLanding = false }: NavbarProps) {
 
   const handleLogoClick = () => {
     setIsMenuOpen(false);
-    navigate("/");
-    window.setTimeout(() => scrollToSection("product"), 80);
+    if (location.pathname !== "/") {
+      navigate("/");
+      return;
+    }
+    scrollToSection("product");
   };
 
   const handleAboutNavigation = () => {

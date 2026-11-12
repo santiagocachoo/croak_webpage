@@ -1,7 +1,9 @@
-import { ArrowRight, ArrowUpRight, BarChart3, Bell, BellRing, CheckCircle2, Eye, LockKeyhole, Play, ShieldAlert } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BarChart3, Bell, BellRing, CheckCircle2, Eye, LockKeyhole, Play, Rotate3d, ShieldAlert } from "lucide-react";
+import { useRef, useState } from "react";
 import { FAQ } from "@/app/components/FAQ";
 import { FinalCTA } from "@/app/components/FinalCTA";
 import { Footer } from "@/app/components/Footer";
+import { loadModelViewer, Model3DViewer } from "@/app/components/Model3DViewer";
 import { Navbar } from "@/app/components/Navbar";
 import croakHero from "@/assets/croak_hero.webp";
 import croakModelExploded from "@/assets/croak_model_exploded.webp";
@@ -12,7 +14,6 @@ const metrics = [
   { value: "7.0", unit: "", label: "pH" },
   { value: "2.9", unit: "NTU", label: "Turbidez" },
   { value: "179", unit: "ppm", label: "TDS" },
-  { value: "22.4", unit: "°C", label: "Temperatura" },
 ];
 
 const problems = [
@@ -35,16 +36,16 @@ const problems = [
 
 const steps = [
   { title: "El agua pasa por Croak", text: "Se conecta a la línea de agua y mide mientras el agua circula." },
-  { title: "Los sensores leen la señal", text: "pH, turbidez, TDS y temperatura, de forma continua." },
+  { title: "Los sensores leen la señal", text: "pH, turbidez y TDS, de forma continua." },
   { title: "Las lecturas llegan a la app", text: "Valor actual, historial y rango normal de cada sensor." },
   { title: "Te avisa si algo cambia", text: "Una notificación con el valor y la hora del cambio." },
 ];
 
 const appFeatures = [
   { icon: CheckCircle2, title: "Estado general", text: "Una lectura principal indica si todo está normal o si algo requiere revisión." },
-  { icon: BarChart3, title: "Historial", text: "Cómo han cambiado el pH, la turbidez, el TDS y la temperatura durante el día o la semana." },
+  { icon: BarChart3, title: "Historial", text: "Cómo han cambiado el pH, la turbidez y el TDS durante el día o la semana." },
   { icon: BellRing, title: "Alertas", text: "Solo cuando una lectura sale del rango normal, no por cada pequeña variación." },
-  { icon: LockKeyhole, title: "Control de válvula", text: "Cierra el paso del agua desde la app si detectas un problema." },
+  { icon: LockKeyhole, title: "Control de válvula (en desarrollo)", text: "Estamos desarrollando una válvula para cerrar el paso del agua desde la app; en el prototipo de la app ya puedes ver cómo funcionaría." },
 ];
 
 const scrollToContact = () => {
@@ -53,7 +54,19 @@ const scrollToContact = () => {
 
 export function HomePage() {
   const problemsRef = useStagger(110);
-  const stepsRef = useStagger(120);
+  const stepsRef = useStagger<HTMLOListElement>(120);
+  const [show3D, setShow3D] = useState(false);
+  const open3DRef = useRef<HTMLButtonElement>(null);
+
+  const close3D = () => {
+    setShow3D(false);
+    requestAnimationFrame(() => open3DRef.current?.focus({ preventScroll: true }));
+  };
+
+  // Empieza a descargar el visor en cuanto alguien muestra intención (hover, foco o toque).
+  const warmUp3D = () => {
+    loadModelViewer().catch(() => {});
+  };
 
   return (
     <>
@@ -69,7 +82,7 @@ export function HomePage() {
               El estado de tu agua, <em className="italic text-[#16a36c]">siempre</em> visible.
             </h1>
             <p className="croak-hero-3 mx-auto mt-8 max-w-xl text-lg leading-relaxed text-[#436856] sm:text-xl">
-              Monitoreo continuo de pH, turbidez, TDS y temperatura. Croak detecta cualquier cambio en tu agua en el momento en que ocurre.
+              Monitoreo continuo de pH, turbidez y TDS. Croak te avisa en el momento en que algo cambia en tu agua.
             </p>
             <div className="croak-hero-4 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <button
@@ -103,7 +116,7 @@ export function HomePage() {
 
         {/* Métricas a escala */}
         <section className="px-5 py-16 sm:px-8 lg:px-12">
-          <div className="croak-scroll-reveal mx-auto grid max-w-[1240px] grid-cols-2 gap-y-12 lg:grid-cols-4">
+          <div className="croak-scroll-reveal mx-auto grid max-w-[1240px] grid-cols-1 gap-y-12 sm:grid-cols-3">
             {metrics.map((m) => (
               <div key={m.label} className="border-l border-[#d8eee5] pl-6">
                 <p className="font-data text-5xl font-medium tracking-tight text-[#0b1f15] sm:text-6xl">
@@ -144,14 +157,39 @@ export function HomePage() {
             <div className="croak-scroll-reveal mx-auto max-w-3xl text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#0b7a4f]">El prototipo</p>
               <h2 className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[4rem]">
-                Sensores, válvula y electrónica en un solo dispositivo.
+                Sensores y electrónica en un solo dispositivo.
               </h2>
+              <p className="mt-6 text-lg leading-relaxed text-[#436856]">
+                Gíralo, acércate y separa sus piezas: la tubería, el electrodo de pH y los sensores de turbidez y TDS.
+              </p>
             </div>
-            <img
-              src={croakModelExploded}
-              alt="Modelo 3D de Croak con componentes internos visibles"
-              className="croak-scroll-float mx-auto mt-16 w-full max-w-[1000px] rounded-[2rem] object-contain shadow-[0_30px_80px_rgba(11,122,79,0.12)]"
-            />
+            <div className="relative mx-auto mt-16 w-full max-w-[1000px]">
+              {show3D ? (
+                <Model3DViewer onClose={close3D} aspectClassName="aspect-[6/5] sm:aspect-[16/10]" />
+              ) : (
+                <>
+                  <img
+                    src={croakModelExploded}
+                    alt="Modelo 3D de Croak con componentes internos visibles"
+                    loading="lazy"
+                    decoding="async"
+                    className="croak-scroll-float w-full rounded-[2rem] object-contain shadow-[0_30px_80px_rgba(11,122,79,0.12)]"
+                  />
+                  <button
+                    ref={open3DRef}
+                    type="button"
+                    onClick={() => setShow3D(true)}
+                    onPointerEnter={warmUp3D}
+                    onFocus={warmUp3D}
+                    onTouchStart={warmUp3D}
+                    className="absolute bottom-5 left-1/2 z-10 inline-flex -translate-x-1/2 cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-[#0b1f15] px-6 py-3.5 font-bold text-white shadow-[0_8px_24px_rgba(11,31,21,0.25)] transition-[transform,background-color] duration-200 hover:bg-[#0b7a4f] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0b7a4f]"
+                  >
+                    <Rotate3d className="h-4 w-4" aria-hidden="true" />
+                    Explorar en 3D
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </section>
 
@@ -183,7 +221,9 @@ export function HomePage() {
             <div className="croak-scroll-reveal order-2 flex justify-center lg:order-1">
               <img
                 src={previewApp}
-                alt="Prototipo de la app Croak"
+                alt="Pantalla de inicio del prototipo de la app Croak"
+                loading="lazy"
+                decoding="async"
                 className="w-full max-w-[340px] rounded-[2.4rem] shadow-[0_40px_120px_rgba(22,163,108,0.25)]"
               />
             </div>

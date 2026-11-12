@@ -16,4 +16,10 @@ export default defineConfig({
   },
 
   assetsInclude: ['**/*.svg', '**/*.csv'],
+
+  build: {
+    // El visor 3D (model-viewer + three.js, ~1 MB) es un chunk aparte que solo se descarga
+    // cuando alguien toca "Explorar en 3D"; no afecta la carga inicial.
+    chunkSizeWarningLimit: 1200,
+  },
 })

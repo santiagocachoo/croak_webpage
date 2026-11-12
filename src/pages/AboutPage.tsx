@@ -145,14 +145,14 @@ export function AboutPage() {
                 <Cpu className="h-6 w-6 text-[#0b7a4f] transition-transform group-hover:-translate-y-1" aria-hidden="true" />
                 <p className="mt-6 text-2xl font-extrabold">Hardware</p>
                 <p className="mt-3 leading-7 text-[#436856]">
-                  Un dispositivo compacto que integra sensores y válvula directamente en la línea de agua.
+                  Un dispositivo compacto que integra los sensores directamente en la línea de agua. La válvula para cerrar el paso del agua está en desarrollo.
                 </p>
               </div>
               <div className="group p-7 transition-colors hover:bg-[#edf8f3]">
                 <Lightbulb className="h-6 w-6 text-[#16a36c] transition-transform group-hover:-translate-y-1" aria-hidden="true" />
                 <p className="mt-6 text-2xl font-extrabold">Software</p>
                 <p className="mt-3 leading-7 text-[#436856]">
-                  Una app que muestra el estado general, el historial de cada sensor y el control de la válvula.
+                  Una app que muestra el estado general, el historial de cada sensor y las alertas cuando algo sale de rango.
                 </p>
               </div>
             </div>
