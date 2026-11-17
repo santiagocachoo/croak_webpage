@@ -45,7 +45,7 @@ const appFeatures = [
   { icon: CheckCircle2, title: "Estado general", text: "Una lectura principal indica si todo está normal o si algo requiere revisión." },
   { icon: BarChart3, title: "Historial", text: "Cómo han cambiado el pH, la turbidez y el TDS durante el día o la semana." },
   { icon: BellRing, title: "Alertas", text: "Solo cuando una lectura sale del rango normal, no por cada pequeña variación." },
-  { icon: LockKeyhole, title: "Control de válvula (en desarrollo)", text: "Estamos desarrollando una válvula para cerrar el paso del agua desde la app; en el prototipo de la app ya puedes ver cómo funcionaría." },
+  { icon: LockKeyhole, title: "Control de válvula (en desarrollo)", text: "Estamos desarrollando una válvula para cerrar el paso del agua desde la app. Todavía no forma parte del prototipo." },
 ];
 
 const scrollToContact = () => {
@@ -221,7 +221,7 @@ export function HomePage() {
             <div className="croak-scroll-reveal order-2 flex justify-center lg:order-1">
               <img
                 src={previewApp}
-                alt="Pantalla de inicio del prototipo de la app Croak"
+                alt="Panel de la app Croak con datos simulados: estado general del agua y lecturas de pH y turbidez dentro de su rango normal"
                 loading="lazy"
                 decoding="async"
                 className="w-full max-w-[340px] rounded-[2.4rem] shadow-[0_40px_120px_rgba(22,163,108,0.25)]"
